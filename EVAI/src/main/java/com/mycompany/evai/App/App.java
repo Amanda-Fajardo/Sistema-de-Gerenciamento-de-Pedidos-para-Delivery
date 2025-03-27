@@ -5,7 +5,7 @@
 package com.mycompany.evai.App;
 
 import com.mycompany.evai.conexao.Conexao;
-import com.mycompany.evai.entidade.Produto;
+import com.mycompany.evai.entidade.Restaurante;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -18,18 +18,23 @@ public class App {
     public static void main(String args[]) {
         Connection con = Conexao.getConexao();
         PreparedStatement stmt = null;
-        Produto produto = new Produto();
+        Restaurante restaurante = new Restaurante();
         
-        produto.setDescricao("descricao x");
+        restaurante.setNome("EVAI Lanches");
+        restaurante.setEndereco("Rua X - 2876");
+        restaurante.setTelefone("40028922");
 
         try {
-            stmt = con.prepareStatement("INSERT INTO produto (descricao) VALUES (?)");
-           
-            stmt.setString(1, produto.getDescricao());
+            stmt = con.prepareStatement("INSERT INTO restaurantes (nome, endereco, telefone) VALUES (?, ?, ?)");
+
+
+            stmt.setString(1, restaurante.getNome()); // Nome do restaurante
+            stmt.setString(2, restaurante.getEndereco()); // Seta o endereço na tabela restaurante
+            stmt.setString(3, restaurante.getTelefone()); // Telefone do restaurante
 
             stmt.executeUpdate();
             
-            System.out.println("Curso " + produto.getDescricao() + " inserido com sucesso");
+            System.out.println("Restaurante:  " + restaurante.getNome() + " inserido com sucesso");
 
         } catch (SQLException ex) {
             ex.printStackTrace();

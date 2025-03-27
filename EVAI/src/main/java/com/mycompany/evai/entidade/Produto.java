@@ -10,6 +10,9 @@ package com.mycompany.evai.entidade;
  */
 public class Produto {
     private int id;
+    private int idRestaurante;
+    private String nome;
+    private float preco;
     private String descricao;
 
     /**
@@ -38,5 +41,47 @@ public class Produto {
      */
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    /**
+     * @return the idRestaurante
+     */
+    public int getIdRestaurante() {
+        return idRestaurante;
+    }
+
+    /**
+     * @return the nome
+     */
+    public String getNome() {
+        return nome;
+    }
+
+    /**
+     * @return the preco
+     */
+    public float getPreco() {
+        return preco;
+    }
+
+    /**
+     * @param idRestaurante the idRestaurante to set
+     */
+    public void setIdRestaurante(int idRestaurante) {
+        this.idRestaurante = idRestaurante;
+    }
+
+    /**
+     * @param nome the nome to set
+     */
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    /**
+     * @param preco the preco to set
+     */
+    public void setPreco(float preco) {
+        this.preco = preco;
     }
 }
