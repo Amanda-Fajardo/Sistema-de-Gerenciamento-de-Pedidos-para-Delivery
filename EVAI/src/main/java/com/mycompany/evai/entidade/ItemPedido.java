@@ -2,9 +2,10 @@ package com.mycompany.evai.entidade;
 
 public class ItemPedido {
     private int id;
-    private Produto produto;
+    private int idProduto;
+    private int idPedido;
     private int quantidade;
-    private double valorUnitario;
+    private float valorUnitario;
 
     /**
      * @return the id
@@ -23,15 +24,23 @@ public class ItemPedido {
     /**
      * @return the produto
      */
-    public Produto getProduto() {
-        return produto;
+    public int getIdProduto() {
+        return idProduto;
     }
 
     /**
      * @param produto the produto to set
      */
-    public void setProduto(Produto produto) {
-        this.produto = produto;
+    public void setIdProduto(int idProduto) {
+        this.idProduto = idProduto;
+    }
+
+    public int getIdPedido() {
+        return idPedido;
+    }
+
+    public void setIdPedido(int idPedido) {
+        this.idPedido = idPedido;
     }
 
     /**
@@ -51,14 +60,14 @@ public class ItemPedido {
     /**
      * @return the valorUnitario
      */
-    public double getValorUnitario() {
+    public float getValorUnitario() {
         return valorUnitario;
     }
 
     /**
      * @param valorUnitario the valorUnitario to set
      */
-    public void setValorUnitario(double valorUnitario) {
+    public void setValorUnitario(float valorUnitario) {
         this.valorUnitario = valorUnitario;
     }
 }

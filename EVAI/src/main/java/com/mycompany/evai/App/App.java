@@ -45,7 +45,7 @@ public class App {
         removRestaurante.setTelefone("7490873711");
 
         restauranteDAO.excluir(removRestaurante);
-        
+
         removRestaurante.setId(8);
 
         restauranteDAO.alterar(removRestaurante);
