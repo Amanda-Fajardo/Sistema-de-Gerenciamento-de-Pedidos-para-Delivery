@@ -22,7 +22,7 @@ public class PedidoDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("INSERT INTO pedidos (id_cliente, id_restaurante, status, data) VALUES (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
+            stmt = con.prepareStatement("INSERT INTO pedidos (id_cliente, id_restaurante, status, data_pedido) VALUES (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
            
             stmt.setInt(1, cliente.getId()); // Id do cliente
             stmt.setInt(2, restaurante.getId()); // Id do restaurante
@@ -60,7 +60,7 @@ public class PedidoDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("UPDATE pedidos SET id_cliente = ?, id_restaurante = ?, status = ?, data = ? where id_pedido = ? ");
+            stmt = con.prepareStatement("UPDATE pedidos SET id_cliente = ?, id_restaurante = ?, status = ?, data_pedido = ? where id_pedido = ? ");
         
            
             stmt.setInt(1, cliente.getId()); // Id do cliente
@@ -124,7 +124,7 @@ public class PedidoDAO {
        
        try{
            
-           stmt = con.prepareStatement("select id_pedido, id_cliente, id_restaurante, status, data from pedidos");
+           stmt = con.prepareStatement("select id_pedido, id_cliente, id_restaurante, status, data_pedido from pedidos");
            rs = stmt.executeQuery();
            
            while (rs.next()){
