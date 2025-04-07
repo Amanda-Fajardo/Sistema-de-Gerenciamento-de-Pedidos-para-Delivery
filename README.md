@@ -1,6 +1,6 @@
-<p>
-  [![Typing SVG](https://readme-typing-svg.demolab.com font=Poppins&weight=600&size=30&pause=1000&color=772D8B&center=true&vCenter=true&width=1000&lines=Bem+vindos+ao+EVAI!;Sistema+de+Gerenciamento+de+Pedidos+para+Delivery)](https://git.io/typing-svg)
-</p>
+
+[![Typing SVG](https://readme-typing-svg.demolab.com font=Poppins&weight=600&size=30&pause=1000&color=772D8B&center=true&vCenter=true&width=1000&lines=Bem+vindos+ao+EVAI!;Sistema+de+Gerenciamento+de+Pedidos+para+Delivery)](https://git.io/typing-svg)
+
 <h2>✨Sobre o Projeto</h2>
 EVAI é um sistema intuitivo e eficiente criado para conectar restaurantes e clientes de forma simples e rápida.
 O projeto oferece uma interface amigável para pedidos, gerenciamento de cardápio e acompanhamento do status da entrega.
