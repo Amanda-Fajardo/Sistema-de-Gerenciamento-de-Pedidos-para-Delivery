@@ -1,4 +1,6 @@
-<div align="center"> <h1 style="color:#772D8B; font-size: 3em;"> <img src="https://emojigraph.org/media/facebook/delivery-truck_1f69a.png" width="40"/> <span style="animation: glow 2s ease-in-out infinite alternate;">EVAI</span> </h1> <p style="font-size: 1.2em;"><strong style="color:#CCA43B;">Sistema de Gerenciamento de Pedidos para Delivery</strong></p> <img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-%23772D8B?style=for-the-badge&logo=github" /> <img src="https://img.shields.io/badge/Versão-1.0-%23CCA43B?style=for-the-badge" /> </div>
+<p>
+  [![Typing SVG](https://readme-typing-svg.demolab.com font=Poppins&weight=600&size=30&pause=1000&color=772D8B&center=true&vCenter=true&width=1000&lines=Bem+vindos+ao+EVAI!;Sistema+de+Gerenciamento+de+Pedidos+para+Delivery)](https://git.io/typing-svg)
+</p>
 <h2>✨Sobre o Projeto</h2>
 EVAI é um sistema intuitivo e eficiente criado para conectar restaurantes e clientes de forma simples e rápida.
 O projeto oferece uma interface amigável para pedidos, gerenciamento de cardápio e acompanhamento do status da entrega.
