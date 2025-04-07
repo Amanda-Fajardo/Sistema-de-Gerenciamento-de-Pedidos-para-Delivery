@@ -3,8 +3,7 @@
 EVAI é um sistema intuitivo e eficiente criado para conectar restaurantes e clientes de forma simples e rápida.
 O projeto oferece uma interface amigável para pedidos, gerenciamento de cardápio e acompanhamento do status da entrega.
 
-<p align="center"> <img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/null/external-food-delivery-mobile-app-development-flaticons-lineal-color-flat-icons.png"/> </p>
-⚙️ Funcionalidades Principais
+<h2>⚙️ Funcionalidades Principais</h2>
 📦 Cadastro de Produtos: Restaurantes podem adicionar, editar ou remover itens do cardápio.
 
 🛒 Realização de Pedidos: Clientes escolhem os produtos e enviam seus pedidos facilmente.
@@ -16,15 +15,15 @@ O projeto oferece uma interface amigável para pedidos, gerenciamento de cardáp
 📜 Histórico de Pedidos: Acompanhe o histórico de compras e vendas com facilidade.
 
 
-🛠️ Tecnologias Utilizadas
-<p align="center"> <img src="https://img.icons8.com/color/48/java-coffee-cup-logo.png" title="Java"/> <img src="https://img.icons8.com/external-flat-juicy-fish/48/external-gui-ui-flat-flat-juicy-fish.png" title="Swing (GUI)"/> <img src="https://img.icons8.com/ios-filled/50/sql.png" title="SQL"/> </p>
+<h2>🛠️ Tecnologias Utilizadas</h2>
+<p align="center" justify="center"> <img src="https://img.icons8.com/color/48/java-coffee-cup-logo.png" title="Java"/> <img src="https://sarith-w.github.io/Portfolio/images/java-swing.png" title="Swing (GUI)"/> <img src="https://img.icons8.com/ios-filled/50/sql.png" title="SQL"/> </p>
 Java – Lógica de negócio (Back-end)
 
 Swing – Interface gráfica desktop
 
 SQL – Banco de dados relacional
 
-🎨 Paleta de Cores do Projeto
+<h2>🎨 Paleta de Cores do Projeto</h2>
 Roxo principal: #772D8B
 
 Amarelo destaque: #CCA43B
