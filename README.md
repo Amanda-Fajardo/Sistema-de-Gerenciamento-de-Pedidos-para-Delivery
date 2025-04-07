@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Poppins&weight=600&size=50&pause=1000&color=772D8B&center=true&vCenter=true&width=1000&lines=Bem+vindos+ao+EVAI!;Sistema+de+Gerenciamento+de+Pedidos+para+Delivery" alt="Typing SVG">
+  <img src="https://readme-typing-svg.demolab.com?font=Poppins&weight=600&size=30&pause=1000&color=772D8B&center=true&vCenter=true&width=1000&lines=Bem+vindos+ao+EVAI!;Sistema+de+Gerenciamento+de+Pedidos+para+Delivery" alt="Typing SVG">
 </p>
 
 
