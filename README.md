@@ -30,8 +30,8 @@ Swing – Interface gráfica desktop
 SQL – Banco de dados relacional
 
 <h2>🎨 Paleta de Cores do Projeto</h2>
-<p background-color=#772D8B>Roxo principal: #772D8B</p>
+Roxo principal: #772D8B</p>
 
-<p background-color=#772D8B>Amarelo destaque: #CCA43B</p>
+Amarelo destaque: #CCA43B</p>
 
 <div align="center"> <strong style="color:#772D8B;">Projeto desenvolvido para a disciplina de LPII – Linguagem de Programação II<br> do Bacharelado em Sistemas de Informação – IFBA</strong> </div>
