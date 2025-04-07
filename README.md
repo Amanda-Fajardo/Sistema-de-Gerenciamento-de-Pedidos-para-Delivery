@@ -4,6 +4,7 @@
 
 
 <h2>✨Sobre o Projeto</h2>
+
 EVAI é um **Sistema de Gerenciamento de Pedidos para Delivery**, desenvolvido para otimizar a interação entre clientes e restaurantes. A ideia principal é permitir que os clientes façam pedidos de forma simples e prática, selecionando itens do cardápio e enviando a solicitação diretamente para o restaurante.
 O restaurante, por sua vez, terá a capacidade de **aceitar ou rejeitar** o pedido com base na disponibilidade de itens e na capacidade de atender à demanda. Quando o pedido é aceito, o cliente será notificado sobre o andamento do seu pedido e poderá acompanhar o status até a entrega.
 
