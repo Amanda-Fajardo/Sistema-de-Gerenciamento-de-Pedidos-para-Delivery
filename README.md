@@ -43,4 +43,6 @@ Roxo principal: #772D8B</p>
 
 Amarelo destaque: #CCA43B</p>
 
-<div height="50" align="center"> <strong style="color:#772D8B;">Projeto desenvolvido para a disciplina de LPII – Linguagem de Programação II<br> do Bacharelado em Sistemas de Informação – IFBA</strong> </div>
+<div height="50px" align="center"> <strong style="color:#772D8B;">
+  <p>Projeto desenvolvido para a disciplina de LPII – Linguagem de Programação II<br> do Bacharelado em Sistemas de Informação – IFBA</strong></p>
+</div>
