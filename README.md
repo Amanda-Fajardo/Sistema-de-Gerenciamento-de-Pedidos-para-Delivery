@@ -16,11 +16,14 @@ O projeto oferece uma interface amigável para pedidos, gerenciamento de cardáp
 
 
 <h2>🛠️ Tecnologias Utilizadas</h2>
-<p align="center">
-  <img src="https://img.icons8.com/color/48/java-coffee-cup-logo.png" title="Java" width="60"/>
-  <img src="https://sarith-w.github.io/Portfolio/images/java-swing.png" title="Swing (GUI)" width="60"/>
-  <img src="https://pngimg.com/uploads/mysql/mysql_PNG22.png" title="MySQL" width="60"/>
-</p>
+
+<table align="center">
+  <tr>
+    <td align="center"><img src="https://img.icons8.com/color/48/java-coffee-cup-logo.png" width="60"/><br/>Java</td>
+    <td align="center"><img src="https://sarith-w.github.io/Portfolio/images/java-swing.png" width="60"/><br/>Swing</td>
+    <td align="center"><img src="https://toppng.com/uploads/preview/mysql-logo-11536003912o2fjzalzdb.png" width="60"/><br/>MySQL</td>
+  </tr>
+</table>
 Java – Lógica de negócio (Back-end)
 
 Swing – Interface gráfica desktop
