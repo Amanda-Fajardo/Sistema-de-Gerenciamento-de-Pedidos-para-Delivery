@@ -16,7 +16,7 @@ O projeto oferece uma interface amigável para pedidos, gerenciamento de cardáp
 
 
 <h2>🛠️ Tecnologias Utilizadas</h2>
-<p align="center" justify="center"> <img width="200px" height="200px"  src="https://img.icons8.com/color/48/java-coffee-cup-logo.png" title="Java"/> <img width="200px" height="200px" src="https://sarith-w.github.io/Portfolio/images/java-swing.png" title="Swing (GUI)"/> <img width="200px" height="200px" src="https://img.icons8.com/ios-filled/50/sql.png" title="SQL"/> </p>
+<p align="center" justify="center"> <img width="100px" height="100px"  src="https://img.icons8.com/color/48/java-coffee-cup-logo.png" title="Java"/> <img width="100px" height="100px" src="https://sarith-w.github.io/Portfolio/images/java-swing.png" title="Swing (GUI)"/> <img width="100px" height="100px" src="https://img.icons8.com/ios-filled/50/sql.png" title="SQL"/> </p>
 Java – Lógica de negócio (Back-end)
 
 Swing – Interface gráfica desktop
