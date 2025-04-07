@@ -22,7 +22,7 @@ O projeto oferece uma interface amigável para pedidos, gerenciamento de cardáp
 <h2>🛠️ Tecnologias Utilizadas</h2>
 
 <p align="center">
-  <img src="https://img.icons8.com/color/60/java-coffee-cup-logo--v1.png" title="Java" width="60" style="vertical-align: middle;"/>
+  <img src="https://readme-components.vercel.app/api?component=logo&logo=java&desc=Java&fill=772D8B"/>
   <img src="https://sarith-w.github.io/Portfolio/images/java-swing.png" title="Swing" width="60" style="vertical-align: middle;"/>
   <img src="https://pngimg.com/uploads/mysql/mysql_PNG22.png" title="MySQL" width="60" style="vertical-align: middle;"/>
 </p>
