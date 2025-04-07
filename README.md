@@ -16,8 +16,8 @@ O projeto oferece uma interface amigável para pedidos, gerenciamento de cardáp
 
 
 <h2>🛠️ Tecnologias Utilizadas</h2>
-<div display="flex" gap="20px">
-  align="center" justify="center"> <img width="100px" src="https://img.icons8.com/color/48/java-coffee-cup-logo.png" title="Java"/> <img width="100px" src="https://sarith-w.github.io/Portfolio/images/java-swing.png" title="Swing (GUI)"/> <img width="100px" src="https://th.bing.com/th/id/OIP.sP5K_K9cnRVP1UKOECC63AHaG_?rs=1&pid=ImgDetMain" title="MYSQL"/> 
+<div display="flex" gap="20px" justify-content="center" align-items="center">
+  align="center" justify="center"> <img width="100px" src="https://img.icons8.com/color/48/java-coffee-cup-logo.png" title="Java"/> <img width="100px" src="https://sarith-w.github.io/Portfolio/images/java-swing.png" title="Swing (GUI)"/> <img width="100px" src="https://www.freepnglogos.com/uploads/logo-mysql-png/logo-mysql-database-mysql-svg-png-icon-download-12.png" title="MYSQL"/> 
 </div>
 Java – Lógica de negócio (Back-end)
 
