@@ -22,11 +22,11 @@ O projeto oferece uma interface amigável para pedidos, gerenciamento de cardáp
 <h2>🛠️ Tecnologias Utilizadas</h2>
 
 <p align="center">
-  <img src="https://readme-components.vercel.app/api?component=logo&logo=java&desc=Java&fill=772D8B" />
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://readme-components.vercel.app/api?component=logo&logo=mysql&desc=MySQL&fill=CCA43B" />
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="https://readme-components.vercel.app/api?component=logo&logo=-&desc=Swing(GUI)&fill=772D8B" />
+  <img src="https://img.icons8.com/color/96/java-coffee-cup-logo.png" width="80" title="Java"/>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="https://upload.wikimedia.org/wikipedia/labs/8/8e/Mysql_logo.png" width="80" title="MySQL"/>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="https://sarith-w.github.io/Portfolio/images/java-swing.png" width="80" title="Swing (GUI)"/>
 </p>
 
 Java – Lógica de negócio (Back-end)
