@@ -114,6 +114,7 @@ public class TelaInicialCliente extends javax.swing.JFrame {
             
              card.addMouseListener(new java.awt.event.MouseAdapter() {
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dispose();
                 new CardapioClienteView(r).setVisible(true);
             }
     });
