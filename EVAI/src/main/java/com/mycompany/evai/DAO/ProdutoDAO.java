@@ -152,4 +152,36 @@ public class ProdutoDAO {
       return produtos;
        
    }
+     
+   public List<Produto> consultarPorRestaurante(int idRestaurante) {
+    List<Produto> lista = new ArrayList<>();
+    Connection con = Conexao.getConexao();
+       
+
+    try {
+        String sql = "SELECT * FROM produtos WHERE id_restaurante = ?";
+        PreparedStatement stmt = con.prepareStatement(sql);
+        stmt.setInt(1, idRestaurante);
+        ResultSet rs = stmt.executeQuery();
+
+        while (rs.next()) {
+            Produto p = new Produto();
+            p.setId(rs.getInt("id_produto"));
+            p.setNome(rs.getString("nome"));
+            p.setDescricao(rs.getString("descricao"));
+            p.setPreco(rs.getFloat("preco"));
+            p.setIdRestaurante(rs.getInt("id_restaurante"));
+            lista.add(p);
+        }
+
+        rs.close();
+        stmt.close();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+
+    System.out.println("Produtos retornados: " + lista.size());
+    return lista;
+  }
+
 }
