@@ -4,17 +4,20 @@
  */
 package com.mycompany.evai.ClienteView;
 
+import com.mycompany.evai.DAO.ClienteDAO;
+import com.mycompany.evai.entidade.Cliente;
 /**
  *
  * @author amand
  */
 public class CadastroUsuarioView extends javax.swing.JFrame {
-
+    String nome, endereco, telefone;
     /**
      * Creates new form CadastroUsuarioView
      */
     public CadastroUsuarioView() {
         initComponents();
+        ClienteDAO clienteDao = new ClienteDAO();
     }
 
     /**
@@ -43,12 +46,32 @@ public class CadastroUsuarioView extends javax.swing.JFrame {
         lbMeusDados.setText("Meus Dados");
 
         txtNome.setText("Nome");
+        txtNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomeActionPerformed(evt);
+            }
+        });
 
         txtEndereco.setText("Endereço");
+        txtEndereco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEnderecoActionPerformed(evt);
+            }
+        });
 
         txtTelefone.setText("Telefone");
+        txtTelefone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTelefoneActionPerformed(evt);
+            }
+        });
 
         btnSalvar.setText("Salvar ");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setText("Cancelar");
 
@@ -115,6 +138,35 @@ public class CadastroUsuarioView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeActionPerformed
+
+    private void txtTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelefoneActionPerformed
+
+    private void txtEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEnderecoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEnderecoActionPerformed
+
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        // TODO add your handling code here:
+    nome = txtNome.getText();
+    telefone = txtTelefone.getText();
+    endereco = txtEndereco.getText();
+
+    // Criando o objeto Cliente
+    Cliente novoCliente = new Cliente();
+    novoCliente.setNome(nome);
+    novoCliente.setTelefone(telefone);
+    novoCliente.setEndereco(endereco);
+    
+    txtNome.setText("");
+    txtTelefone.setText("");
+    txtEndereco.setText("");
+    }//GEN-LAST:event_btnSalvarActionPerformed
 
     /**
      * @param args the command line arguments

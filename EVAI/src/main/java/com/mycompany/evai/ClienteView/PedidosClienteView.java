@@ -27,8 +27,8 @@ public class PedidosClienteView extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        spPendente = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        spPendentes = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         spEmAndamento = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
         spACaminho = new javax.swing.JScrollPane();
@@ -40,11 +40,20 @@ public class PedidosClienteView extends javax.swing.JFrame {
 
         jTabbedPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jTable2.setModel(new Object[][]{},
-            new String []{"ID", "Data", "Endereço", "Valor", "Status"});
-        spPendente.setViewportView(jTable2);
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        spPendentes.setViewportView(jTable1);
 
-        jTabbedPane1.addTab("Pendentes", spPendente);
+        jTabbedPane1.addTab("Pendentes", spPendentes);
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -149,13 +158,13 @@ public class PedidosClienteView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
     private javax.swing.JLabel lbIcone;
     private javax.swing.JLabel lbPedidos;
     private javax.swing.JScrollPane spACaminho;
     private javax.swing.JScrollPane spEmAndamento;
-    private javax.swing.JScrollPane spPendente;
+    private javax.swing.JScrollPane spPendentes;
     // End of variables declaration//GEN-END:variables
 }
