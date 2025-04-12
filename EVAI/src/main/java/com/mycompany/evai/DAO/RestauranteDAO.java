@@ -150,6 +150,35 @@ public class RestauranteDAO {
        
    }
 
+     // Na classe RestauranteDAO
+    public static Restaurante consultarPorId(int id) {
+        Connection con = Conexao.getConexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Restaurante restaurante = null;
+
+        try {
+            stmt = con.prepareStatement("SELECT * FROM restaurantes WHERE id_restaurante = ?");
+            stmt.setInt(1, id);
+            rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                restaurante = new Restaurante();
+                restaurante.setId(rs.getInt("id_restaurante"));
+                restaurante.setNome(rs.getString("nome"));
+                restaurante.setEndereco(rs.getString("endereco"));
+                restaurante.setTelefone(rs.getString("telefone"));
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            throw new RuntimeException("Erro ao consultar restaurante por ID", ex);
+        } finally {
+            Conexao.fecharConexao(con, stmt, rs);
+        }
+
+        return restaurante;
+    }
 
 }
 

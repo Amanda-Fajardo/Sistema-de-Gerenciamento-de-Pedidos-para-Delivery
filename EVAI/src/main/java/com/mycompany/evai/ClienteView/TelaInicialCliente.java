@@ -91,7 +91,6 @@ public class TelaInicialCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
         carregarRestaurantes();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -115,7 +114,7 @@ public class TelaInicialCliente extends javax.swing.JFrame {
              card.addMouseListener(new java.awt.event.MouseAdapter() {
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dispose();
-                new CardapioClienteView(r).setVisible(true);
+                new CardapioClienteView(r, cliente).setVisible(true);
             }
     });
         }

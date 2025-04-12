@@ -150,5 +150,34 @@ public class ClienteDAO {
       return clientes;
        
    }
+     
+    public static Cliente consultarPorId(int id) {
+        Connection con = Conexao.getConexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Cliente cliente = null;
+
+        try {
+            stmt = con.prepareStatement("SELECT * FROM clientes WHERE id_cliente = ?");
+            stmt.setInt(1, id);
+            rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                cliente = new Cliente();
+                cliente.setId(rs.getInt("id_cliente"));
+                cliente.setNome(rs.getString("nome"));
+                cliente.setEndereco(rs.getString("email"));
+                cliente.setTelefone(rs.getString("telefone"));
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            throw new RuntimeException("Erro ao consultar cliente por ID", ex);
+        } finally {
+            Conexao.fecharConexao(con, stmt, rs);
+        }
+
+        return cliente;
+}
 
 }

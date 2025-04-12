@@ -163,6 +163,9 @@ public class CadastroUsuarioView extends javax.swing.JFrame {
     novoCliente.setTelefone(telefone);
     novoCliente.setEndereco(endereco);
     
+    ClienteDAO clienteDao = new ClienteDAO();
+    clienteDao.incluir(novoCliente);
+    
     txtNome.setText("");
     txtTelefone.setText("");
     txtEndereco.setText("");
