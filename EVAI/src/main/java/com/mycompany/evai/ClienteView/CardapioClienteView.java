@@ -5,14 +5,12 @@
 package com.mycompany.evai.ClienteView;
 
 import com.mycompany.evai.DAO.ProdutoDAO;
-import com.mycompany.evai.entidade.Cliente;
 import com.mycompany.evai.entidade.Produto;
 import com.mycompany.evai.entidade.Restaurante;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Window;
 import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -33,7 +31,6 @@ public class CardapioClienteView extends javax.swing.JFrame {
     private int paginaAtual = 0;
     private final int PRODUTOS_POR_PAGINA = 3;
     private Restaurante restaurante;
-    private Cliente cliente;
 
     /**
      * Creates new form CardapioCliente
@@ -42,7 +39,6 @@ public class CardapioClienteView extends javax.swing.JFrame {
         initComponents();
         
         this.restaurante = r;
-        this.cliente = cliente;
         
         ProdutoDAO produtoDao = new ProdutoDAO();
         produtos = produtoDao.consultarPorRestaurante(r.getId());
@@ -53,6 +49,11 @@ public class CardapioClienteView extends javax.swing.JFrame {
         jLTelefone.setText("Telefone: " + r.getTelefone());
         jLEndereco.setText("Endereço: " + r.getEndereco());
     }
+    
+    public CardapioClienteView() {
+    initComponents();
+    // Configurações iniciais básicas
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -431,7 +432,6 @@ public class CardapioClienteView extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
             public void run() {
                 new CardapioClienteView(r).setVisible(true);
             }
@@ -521,24 +521,6 @@ public class CardapioClienteView extends javax.swing.JFrame {
 
         JButton btnCarrinho = new JButton("Adicionar ao carrinho");
         btnCarrinho.setAlignmentX(Component.CENTER_ALIGNMENT);
-        
-        btnCarrinho.addActionListener(e -> {
-            CarrinhoClienteView carrinho = getCarrinhoAberto();
-            if (carrinho != null) {
-                carrinho.adicionarProduto(produto);
-            } else {
-                // Se o carrinho não estiver aberto, abre uma nova instância
-                CarrinhoClienteView novoCarrinho = new CarrinhoClienteView();
-                novoCarrinho.adicionarProduto(produto);
-
-                JFrame frame = new JFrame("Carrinho de Compras");
-                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
-                frame.setContentPane(novoCarrinho);
-                frame.pack();
-                frame.setLocationRelativeTo(null); 
-                frame.setVisible(true);
-            }
-        });
 
         card.add(lblImagem);
         card.add(Box.createVerticalStrut(15));
@@ -552,17 +534,4 @@ public class CardapioClienteView extends javax.swing.JFrame {
 
         return card;
     }
-    
-                
-    private CarrinhoClienteView getCarrinhoAberto() {
-    for (Window window : Window.getWindows()) {
-        if (window instanceof JFrame && "Carrinho de Compras".equals(((JFrame) window).getTitle())) {
-            JFrame frame = (JFrame) window;
-            if (frame.getContentPane() instanceof CarrinhoClienteView) {
-                return (CarrinhoClienteView) frame.getContentPane();
-            }
-        }
-    }
-    return null;
-}
 }

@@ -19,11 +19,12 @@ public class ClienteDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("INSERT INTO clientes (nome, telefone, endereco) VALUES (?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
+            stmt = con.prepareStatement("INSERT INTO clientes (nome, telefone, endereco, senha) VALUES (?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
            
             stmt.setString(1, cliente.getNome()); // Nome do cliente
             stmt.setString(3, cliente.getTelefone()); // Seta o endereço na tabela cliente
             stmt.setString(2, cliente.getEndereco()); // Telefone do cliente
+            stmt.setString(4, cliente.getSenha()); // Senha do cliente
 
             int linhasAfetadas = stmt.executeUpdate();
             
@@ -56,12 +57,13 @@ public class ClienteDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("UPDATE clientes SET nome = ?, telefone = ?, endereco = ? where id_cliente = ? ");
+            stmt = con.prepareStatement("UPDATE clientes SET nome = ?, telefone = ?, endereco = ?, senha = ? where id_cliente = ? ");
           
             stmt.setString(1, cliente.getNome()); // Nome do cliente
             stmt.setString(3, cliente.getTelefone()); // Telefone do cliente
             stmt.setString(2, cliente.getEndereco()); // Seta o endereço na tabela cliente
             stmt.setInt(4, cliente.getId());
+            stmt.setString(5, cliente.getSenha());
             
             
             stmt.executeUpdate();
@@ -178,6 +180,39 @@ public class ClienteDAO {
         }
 
         return cliente;
-}
+    }
+    
+    public Cliente autenticar(String nome, String senha){
+        Connection con = Conexao.getConexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        try {
+        stmt = con.prepareStatement("SELECT * FROM clientes WHERE nome = ? AND senha = ?");
+        stmt.setString(1, nome);
+        stmt.setString(2, senha);
+        
+        rs = stmt.executeQuery();
+        
+        if (rs.next()){
+            Cliente cliente = new Cliente();
+            cliente.setId(rs.getInt("id_cliente"));
+            cliente.setNome(rs.getString("nome"));
+            cliente.setTelefone(rs.getString("telefone"));
+            cliente.setEndereco(rs.getString("endereço"));
+            cliente.setSenha(rs.getString("senha"));
+            
+            return cliente;
+        }
+      
+    } catch (SQLException e){
+        e.printStackTrace();
+        
+    } finally {
+            Conexao.fecharConexao(con, stmt);
+        }
+        
+        return null;
+    } 
 
 }

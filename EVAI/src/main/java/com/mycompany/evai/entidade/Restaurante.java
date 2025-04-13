@@ -13,6 +13,7 @@ public class Restaurante {
     private String nome;
     private String endereco;
     private String telefone;
+    private String senha;
 
     /**
      * @return the id
@@ -68,5 +69,19 @@ public class Restaurante {
      */
     public void setEndereco(String endereco) {
         this.endereco = endereco;
+    }
+    
+    /**
+     * @return the senha
+     */
+    public String getSenha(){
+        return senha;
+    }
+    
+    /**
+     * @param senha the senha to set
+     */
+    public void setSenha(String senha){
+        this.senha = senha;
     }
 }
