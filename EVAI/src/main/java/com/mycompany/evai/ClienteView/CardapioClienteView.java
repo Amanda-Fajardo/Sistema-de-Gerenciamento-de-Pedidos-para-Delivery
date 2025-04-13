@@ -5,6 +5,7 @@
 package com.mycompany.evai.ClienteView;
 
 import com.mycompany.evai.DAO.ProdutoDAO;
+import com.mycompany.evai.entidade.Cliente;
 import com.mycompany.evai.entidade.Produto;
 import com.mycompany.evai.entidade.Restaurante;
 import java.awt.Color;
@@ -31,14 +32,17 @@ public class CardapioClienteView extends javax.swing.JFrame {
     private int paginaAtual = 0;
     private final int PRODUTOS_POR_PAGINA = 3;
     private Restaurante restaurante;
+    private Cliente cliente;
+    private JFrame frameCarrinho;
 
     /**
      * Creates new form CardapioCliente
      */
-    public CardapioClienteView(Restaurante r) {
+    public CardapioClienteView(Restaurante r, Cliente cliente) {
         initComponents();
         
         this.restaurante = r;
+        this.cliente = cliente;
         
         ProdutoDAO produtoDao = new ProdutoDAO();
         produtos = produtoDao.consultarPorRestaurante(r.getId());
@@ -353,7 +357,7 @@ public class CardapioClienteView extends javax.swing.JFrame {
 
     private void btnCarrinhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarrinhoActionPerformed
         // TODO add your handling code here:
-        CarrinhoClienteView painel = new CarrinhoClienteView();
+        CarrinhoClienteView painel = new CarrinhoClienteView(cliente.getId(), restaurante.getId());
     
         JFrame frame = new JFrame("Carrinho de Compras");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
@@ -399,7 +403,7 @@ public class CardapioClienteView extends javax.swing.JFrame {
     private void jBVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVoltarActionPerformed
         // TODO add your handling code here:
          dispose();
-         new TelaInicialCliente().setVisible(true);
+         new TelaInicialCliente(cliente).setVisible(true);
     }//GEN-LAST:event_jBVoltarActionPerformed
 
     /**
@@ -492,14 +496,8 @@ public class CardapioClienteView extends javax.swing.JFrame {
             BorderFactory.createEmptyBorder(15, 15, 15, 15)
         ));
         card.setBackground(new Color(245, 245, 245));
-
         card.setPreferredSize(new Dimension(250, 300));
         card.setMaximumSize(new Dimension(250, 300));
-
-        card.setBorder(BorderFactory.createCompoundBorder(
-            BorderFactory.createLineBorder(Color.GRAY),
-            BorderFactory.createEmptyBorder(15, 15, 15, 15)
-        ));
 
         JLabel lblImagem = new JLabel(new ImageIcon("/com/mycompany/evai/ClienteView/assets/placeholder.png")); 
         lblImagem.setPreferredSize(new Dimension(150, 150));
@@ -522,6 +520,21 @@ public class CardapioClienteView extends javax.swing.JFrame {
         JButton btnCarrinho = new JButton("Adicionar ao carrinho");
         btnCarrinho.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+        btnCarrinho.addActionListener(e -> {
+            if (frameCarrinho == null || !frameCarrinho.isDisplayable()) {
+                CarrinhoClienteView carrinho = new CarrinhoClienteView(cliente.getId(), restaurante.getId());
+                frameCarrinho = new JFrame("Carrinho de Compras");
+                frameCarrinho.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                frameCarrinho.setContentPane(carrinho);
+                frameCarrinho.pack();
+                frameCarrinho.setLocationRelativeTo(null);
+                frameCarrinho.setVisible(true);
+            }
+
+            CarrinhoClienteView carrinhoView = (CarrinhoClienteView) frameCarrinho.getContentPane();
+            carrinhoView.adicionarProduto(produto);
+        });
+
         card.add(lblImagem);
         card.add(Box.createVerticalStrut(15));
         card.add(lblNome);
@@ -534,4 +547,6 @@ public class CardapioClienteView extends javax.swing.JFrame {
 
         return card;
     }
+    
+    
 }

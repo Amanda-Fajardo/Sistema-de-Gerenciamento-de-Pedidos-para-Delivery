@@ -19,7 +19,7 @@ public class ClienteDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("INSERT INTO clientes (nome, telefone, endereco, senha) VALUES (?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
+            stmt = con.prepareStatement("INSERT INTO clientes (nome, telefone, endereco, senha) VALUES (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
            
             stmt.setString(1, cliente.getNome()); // Nome do cliente
             stmt.setString(3, cliente.getTelefone()); // Seta o endereço na tabela cliente
@@ -168,8 +168,9 @@ public class ClienteDAO {
                 cliente = new Cliente();
                 cliente.setId(rs.getInt("id_cliente"));
                 cliente.setNome(rs.getString("nome"));
-                cliente.setEndereco(rs.getString("email"));
+                cliente.setEndereco(rs.getString("endereco"));
                 cliente.setTelefone(rs.getString("telefone"));
+                cliente.setSenha(rs.getString("senha"));
             }
 
         } catch (SQLException ex) {
@@ -199,8 +200,10 @@ public class ClienteDAO {
             cliente.setId(rs.getInt("id_cliente"));
             cliente.setNome(rs.getString("nome"));
             cliente.setTelefone(rs.getString("telefone"));
-            cliente.setEndereco(rs.getString("endereço"));
+            cliente.setEndereco(rs.getString("endereco"));
             cliente.setSenha(rs.getString("senha"));
+            
+            System.out.println(cliente);
             
             return cliente;
         }
@@ -209,7 +212,7 @@ public class ClienteDAO {
         e.printStackTrace();
         
     } finally {
-            Conexao.fecharConexao(con, stmt);
+            Conexao.fecharConexao(con, stmt, rs);
         }
         
         return null;

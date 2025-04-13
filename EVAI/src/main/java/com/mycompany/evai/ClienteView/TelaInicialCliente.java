@@ -5,6 +5,7 @@
 package com.mycompany.evai.ClienteView;
 
 import com.mycompany.evai.DAO.RestauranteDAO;
+import com.mycompany.evai.entidade.Cliente;
 import com.mycompany.evai.entidade.Restaurante;
 import java.awt.GridLayout;
 import java.util.List;
@@ -18,11 +19,15 @@ import javax.swing.JScrollPane;
  * @author va001
  */
 public class TelaInicialCliente extends javax.swing.JFrame {
+    
+    private Cliente cliente;
 
     /**
      * Creates new form TelaInicialCliente
      */
-    public TelaInicialCliente() {
+    public TelaInicialCliente(Cliente cliente) {
+        this.cliente = cliente;
+        
         initComponents();
         
         carregarRestaurantes();
@@ -40,7 +45,6 @@ public class TelaInicialCliente extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanelGrid = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,13 +59,6 @@ public class TelaInicialCliente extends javax.swing.JFrame {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
-            }
-        });
-
-        jButton2.setText("Fazer login");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
             }
         });
 
@@ -80,9 +77,7 @@ public class TelaInicialCliente extends javax.swing.JFrame {
                         .addGap(80, 80, 80))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButton1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton2)
-                        .addGap(346, 346, 346))))
+                        .addGap(408, 408, 408))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -92,9 +87,7 @@ public class TelaInicialCliente extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addComponent(jPanelGrid, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                .addComponent(jButton1)
                 .addGap(32, 32, 32))
         );
 
@@ -106,36 +99,31 @@ public class TelaInicialCliente extends javax.swing.JFrame {
         carregarRestaurantes();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void carregarRestaurantes() {
         RestauranteDAO dao = new RestauranteDAO();
         List<Restaurante> lista = dao.consulta();
 
-        // Limpar o painel antes de adicionar novos cards
         jPanelGrid.removeAll();
-        jPanelGrid.setLayout(new GridLayout(0, 3, 10, 10)); // 3 colunas, linhas automáticas
+        jPanelGrid.setLayout(new GridLayout(0, 3, 10, 10)); // 3 colunas com espaçamento
 
-        // Criar cards simples dinamicamente
         for (Restaurante r : lista) {
             JPanel card = new JPanel();
             card.setLayout(new BoxLayout(card, BoxLayout.Y_AXIS));
             card.add(new JLabel(r.getNome()));
             card.add(new JLabel(r.getTelefone()));
             card.add(new JLabel(r.getEndereco()));
-            jPanelGrid.add(card);
-            
-             card.addMouseListener(new java.awt.event.MouseAdapter() {
+
+            // Modifique este listener para passar o cliente
+            card.addMouseListener(new java.awt.event.MouseAdapter() {
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
-                dispose();
-                new CardapioClienteView(r).setVisible(true);
-            }
-    });
+                    dispose();
+                    new CardapioClienteView(r, cliente).setVisible(true); 
+                }
+            });
+
+            jPanelGrid.add(card);
         }
 
-        // Atualiza o painel
         jPanelGrid.revalidate();
         jPanelGrid.repaint();
     }
@@ -169,14 +157,13 @@ public class TelaInicialCliente extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaInicialCliente().setVisible(true);
+                new TelaInicialCliente(cliente).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanelGrid;
     // End of variables declaration//GEN-END:variables

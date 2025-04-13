@@ -16,7 +16,7 @@ import com.mycompany.evai.entidade.Restaurante;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.BorderFactory;
@@ -33,7 +33,7 @@ import javax.swing.SwingConstants;
  */
 public class CarrinhoClienteView extends javax.swing.JPanel {
     
-    private int idCliente;
+    private int idCliente, idRestaurante;
     private List<ItemCarrinho> itensCarrinho = new ArrayList<>();;
     private double total = 0.0;
     
@@ -59,14 +59,16 @@ public class CarrinhoClienteView extends javax.swing.JPanel {
         }
     }
     
-    public CarrinhoClienteView(int idCliente) {
+    public CarrinhoClienteView(int idCliente, int idRestaurante) {
+        this.idRestaurante = idRestaurante;
         this.idCliente = idCliente;
         initComponents();
         
         jPanel1.setLayout(new java.awt.GridLayout(0, 4));
     }
     
-     public void adicionarProduto(Produto produto) {
+    
+    public void adicionarProduto(Produto produto) {
         
         for (ItemCarrinho item : itensCarrinho) {
             if (item.produto.getId() == produto.getId()) {
@@ -272,6 +274,7 @@ public class CarrinhoClienteView extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Seu carrinho está vazio!", "Aviso", JOptionPane.WARNING_MESSAGE);
             return;
         }
+        
 
         try {
             // 1. Obter cliente e restaurante
@@ -279,19 +282,36 @@ public class CarrinhoClienteView extends javax.swing.JPanel {
             if (cliente == null) {
                 throw new Exception("Cliente não encontrado");
             }
+            
+            System.out.println(cliente);
+
 
             Restaurante restaurante = obterRestauranteDosItens();
 
             // 2. Criar o pedido
             Pedido pedido = new Pedido();
-            pedido.setDataPedido(new Date());
+            pedido.setData(LocalDate.now());
             pedido.setStatus("Pendente");
 
             // 3. Inserir no banco
             PedidoDAO pedidoDAO = new PedidoDAO();
             pedidoDAO.incluir(pedido, restaurante, cliente);
+            
+             ItemPedidoDAO itemPedidoDAO = new ItemPedidoDAO();
+        
+            for (ItemCarrinho itemCarrinho : itensCarrinho) {
+                ItemPedido itemPedido = new ItemPedido();
+                itemPedido.setQuantidade(itemCarrinho.quantidade);
+                itemPedido.setValorUnitario(itemCarrinho.produto.getPreco());
 
-            // ... resto do código ...
+                // Inserir o item no banco de dados
+                itemPedidoDAO.incluir(itemPedido, itemCarrinho.produto, pedido);
+            }
+
+            // 4. Limpar carrinho e mostrar mensagem de sucesso
+            itensCarrinho.clear();
+            atualizarCarrinho();
+
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, "Erro ao finalizar pedido: " + e.getMessage(), 
