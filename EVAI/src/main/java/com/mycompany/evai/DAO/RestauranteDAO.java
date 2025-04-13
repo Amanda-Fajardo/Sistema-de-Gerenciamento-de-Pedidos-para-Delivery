@@ -18,11 +18,12 @@ public class RestauranteDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("INSERT INTO restaurantes (nome, endereco, telefone) VALUES (?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
+            stmt = con.prepareStatement("INSERT INTO restaurantes (nome, endereco, telefone, senha) VALUES (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
            
             stmt.setString(1, restaurante.getNome()); // Nome do restaurante
             stmt.setString(2, restaurante.getEndereco()); // Seta o endereço na tabela restaurante
             stmt.setString(3, restaurante.getTelefone()); // Telefone do restaurante
+            stmt.setString(4, restaurante.getSenha());
 
             int linhasAfetadas = stmt.executeUpdate();
             
@@ -179,6 +180,39 @@ public class RestauranteDAO {
 
         return restaurante;
     }
+    
+    public Restaurante autenticar(String nome, String senha){
+        Connection con = Conexao.getConexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        try {
+        stmt = con.prepareStatement("SELECT * FROM restaurantes WHERE nome = ? AND senha = ?");
+        stmt.setString(1, nome);
+        stmt.setString(2, senha);
+        
+        rs = stmt.executeQuery();
+        
+        if (rs.next()){
+           Restaurante restaurante = new Restaurante();
+           restaurante.setId(rs.getInt("id_restaurante"));
+           restaurante.setNome(rs.getString("nome"));
+           restaurante.setTelefone(rs.getString("telefone"));
+           restaurante.setEndereco(rs.getString("endereco"));
+           restaurante.setSenha(rs.getString("senha"));
+            
+            return restaurante;
+        }
+      
+    } catch (SQLException e){
+        e.printStackTrace();
+        
+    } finally {
+            Conexao.fecharConexao(con, stmt);
+        }
+        
+        return null;
+    } 
 
 }
 

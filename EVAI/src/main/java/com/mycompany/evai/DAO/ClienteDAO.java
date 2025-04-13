@@ -19,7 +19,7 @@ public class ClienteDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("INSERT INTO clientes (nome, telefone, endereco, senha) VALUES (?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
+            stmt = con.prepareStatement("INSERT INTO clientes (nome, telefone, endereco, senha) VALUES (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
            
             stmt.setString(1, cliente.getNome()); // Nome do cliente
             stmt.setString(3, cliente.getTelefone()); // Seta o endereço na tabela cliente

@@ -352,7 +352,7 @@ public class CardapioClienteView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCarrinhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarrinhoActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:     
         CarrinhoClienteView painel = new CarrinhoClienteView();
     
         JFrame frame = new JFrame("Carrinho de Compras");
@@ -433,6 +433,7 @@ public class CardapioClienteView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                Restaurante r = null;
                 new CardapioClienteView(r).setVisible(true);
             }
         });

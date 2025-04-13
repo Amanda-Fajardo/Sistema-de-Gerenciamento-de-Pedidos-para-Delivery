@@ -175,6 +175,9 @@ public class CadastroUsuarioView extends javax.swing.JFrame {
     txtTelefone.setText("");
     txtEndereco.setText("");
     pwSenha.setText("");
+    
+    ClienteDAO clienteDao = new ClienteDAO();
+    clienteDao.incluir (novoCliente);
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     /**

@@ -4,6 +4,7 @@
  */
 package com.mycompany.evai.ClienteView;
 
+import com.mycompany.evai.ClienteView.LoginClienteView;
 import com.mycompany.evai.DAO.RestauranteDAO;
 import com.mycompany.evai.entidade.Restaurante;
 import java.awt.GridLayout;
@@ -39,8 +40,8 @@ public class TelaInicialCliente extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jPanelGrid = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnAtualizar = new javax.swing.JButton();
+        btnLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,17 +52,17 @@ public class TelaInicialCliente extends javax.swing.JFrame {
         jPanelGrid.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanelGrid.setLayout(new java.awt.GridLayout(2, 4));
 
-        jButton1.setText("Atualizar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAtualizar.setText("Atualizar");
+        btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAtualizarActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Fazer login");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnLogin.setText("Fazer login");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnLoginActionPerformed(evt);
             }
         });
 
@@ -79,9 +80,9 @@ public class TelaInicialCliente extends javax.swing.JFrame {
                         .addComponent(jPanelGrid, javax.swing.GroupLayout.PREFERRED_SIZE, 741, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(80, 80, 80))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(btnAtualizar)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2)
+                        .addComponent(btnLogin)
                         .addGap(346, 346, 346))))
         );
         layout.setVerticalGroup(
@@ -93,22 +94,25 @@ public class TelaInicialCliente extends javax.swing.JFrame {
                 .addComponent(jPanelGrid, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(btnAtualizar)
+                    .addComponent(btnLogin))
                 .addGap(32, 32, 32))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
         // TODO add your handling code here:
         carregarRestaurantes();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnAtualizarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        LoginClienteView login = new LoginClienteView();
+        login.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnLoginActionPerformed
 
     private void carregarRestaurantes() {
         RestauranteDAO dao = new RestauranteDAO();
@@ -175,8 +179,8 @@ public class TelaInicialCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnAtualizar;
+    private javax.swing.JButton btnLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanelGrid;
     // End of variables declaration//GEN-END:variables

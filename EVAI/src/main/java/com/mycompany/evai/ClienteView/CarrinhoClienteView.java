@@ -17,6 +17,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.BorderFactory;
@@ -36,6 +37,10 @@ public class CarrinhoClienteView extends javax.swing.JPanel {
     private int idCliente;
     private List<ItemCarrinho> itensCarrinho = new ArrayList<>();;
     private double total = 0.0;
+
+    CarrinhoClienteView() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     /**
      * Creates new form CarrinhoClienteView
@@ -284,7 +289,7 @@ public class CarrinhoClienteView extends javax.swing.JPanel {
 
             // 2. Criar o pedido
             Pedido pedido = new Pedido();
-            pedido.setDataPedido(new Date());
+            pedido.setData(LocalDate.now());
             pedido.setStatus("Pendente");
 
             // 3. Inserir no banco

@@ -134,6 +134,7 @@ public class PedidoDAO {
                pedido.setIdCliente(rs.getInt("id_cliente"));
                pedido.setIdRestaurante(rs.getInt("id_restaurante"));
                pedido.setStatus(rs.getString("status"));
+               pedido.setData(rs.getDate("data_pedido").toLocalDate());
               
                
                pedidos.add(pedido);
