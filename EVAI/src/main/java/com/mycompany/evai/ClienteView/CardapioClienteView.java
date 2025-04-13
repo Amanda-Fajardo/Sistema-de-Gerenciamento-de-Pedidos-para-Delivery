@@ -98,11 +98,15 @@ public class CardapioClienteView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cardápio");
+        setBackground(new java.awt.Color(119, 45, 139));
         setPreferredSize(new java.awt.Dimension(1219, 1083));
 
         jLCardapio.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLCardapio.setForeground(new java.awt.Color(255, 255, 255));
         jLCardapio.setText("Cardápio");
 
+        btnCarrinho.setBackground(new java.awt.Color(255, 153, 0));
+        btnCarrinho.setForeground(new java.awt.Color(255, 255, 255));
         btnCarrinho.setText("Carrinho");
         btnCarrinho.setPreferredSize(new java.awt.Dimension(129, 23));
         btnCarrinho.addActionListener(new java.awt.event.ActionListener() {
@@ -111,6 +115,8 @@ public class CardapioClienteView extends javax.swing.JFrame {
             }
         });
 
+        btnMeusPedidos.setBackground(new java.awt.Color(255, 153, 0));
+        btnMeusPedidos.setForeground(new java.awt.Color(255, 255, 255));
         btnMeusPedidos.setText("Meus Pedidos");
         btnMeusPedidos.setPreferredSize(new java.awt.Dimension(129, 23));
         btnMeusPedidos.addActionListener(new java.awt.event.ActionListener() {
@@ -133,6 +139,8 @@ public class CardapioClienteView extends javax.swing.JFrame {
             }
         });
 
+        btnAtualizarCardapio.setBackground(new java.awt.Color(255, 153, 0));
+        btnAtualizarCardapio.setForeground(new java.awt.Color(255, 255, 255));
         btnAtualizarCardapio.setText("Atualizar Cardápio");
         btnAtualizarCardapio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,6 +148,8 @@ public class CardapioClienteView extends javax.swing.JFrame {
             }
         });
 
+        jBVoltar.setBackground(new java.awt.Color(255, 153, 0));
+        jBVoltar.setForeground(new java.awt.Color(255, 255, 255));
         jBVoltar.setText("<<");
         jBVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

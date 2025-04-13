@@ -10,6 +10,7 @@ import com.mycompany.evai.DAO.ProdutoDAO;
 import com.mycompany.evai.entidade.ItemPedido;
 import com.mycompany.evai.entidade.Pedido;
 import com.mycompany.evai.entidade.Produto;
+import java.awt.Color;
 import java.util.List;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -36,6 +37,7 @@ public class PedidosClienteView extends javax.swing.JFrame {
         this.produtoDAO = new ProdutoDAO();
         this.pedidoDAO = new PedidoDAO();
         this.itemPedidoDAO = new ItemPedidoDAO();
+        
 
         initComponents();
         configurarTabelas();
@@ -62,6 +64,7 @@ public class PedidosClienteView extends javax.swing.JFrame {
         jbAtualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(204, 0, 204));
 
         jTabbedPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -111,8 +114,11 @@ public class PedidosClienteView extends javax.swing.JFrame {
         jTabbedPane1.addTab("A Caminho", spACaminho);
 
         lbPedidos.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        lbPedidos.setForeground(new java.awt.Color(255, 255, 255));
         lbPedidos.setText("Pedidos");
 
+        jbAtualizar.setBackground(new java.awt.Color(255, 153, 0));
+        jbAtualizar.setForeground(new java.awt.Color(255, 255, 255));
         jbAtualizar.setText("Atualizar");
         jbAtualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

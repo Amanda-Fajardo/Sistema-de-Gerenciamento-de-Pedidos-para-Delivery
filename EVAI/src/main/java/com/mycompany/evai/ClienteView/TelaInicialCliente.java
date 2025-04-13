@@ -7,12 +7,21 @@ package com.mycompany.evai.ClienteView;
 import com.mycompany.evai.DAO.RestauranteDAO;
 import com.mycompany.evai.entidade.Cliente;
 import com.mycompany.evai.entidade.Restaurante;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Cursor;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.util.List;
+import javax.swing.BorderFactory;
+import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.SwingConstants;
 
 /**
  *
@@ -47,14 +56,20 @@ public class TelaInicialCliente extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
+        setBackground(new java.awt.Color(204, 0, 204));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("EVAI");
 
+        jPanelGrid.setBackground(new java.awt.Color(255, 255, 255));
         jPanelGrid.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanelGrid.setLayout(new java.awt.GridLayout(2, 4));
 
+        jButton1.setBackground(new java.awt.Color(255, 153, 0));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Atualizar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,25 +119,69 @@ public class TelaInicialCliente extends javax.swing.JFrame {
         List<Restaurante> lista = dao.consulta();
 
         jPanelGrid.removeAll();
-        jPanelGrid.setLayout(new GridLayout(0, 3, 10, 10)); // 3 colunas com espaçamento
+        jPanelGrid.setLayout(new GridLayout(0, 3, 20, 20)); // 0 linhas (auto), 3 colunas, 20px de espaçamento
 
         for (Restaurante r : lista) {
             JPanel card = new JPanel();
-            card.setLayout(new BoxLayout(card, BoxLayout.Y_AXIS));
-            card.add(new JLabel(r.getNome()));
-            card.add(new JLabel(r.getTelefone()));
-            card.add(new JLabel(r.getEndereco()));
+            card.setLayout(new BorderLayout());
+            card.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15)); // Margem interna
 
-            // Modifique este listener para passar o cliente
+            JPanel contentPanel = new JPanel();
+            contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.Y_AXIS));
+
+            JLabel nomeLabel = new JLabel(r.getNome(), SwingConstants.CENTER);
+            nomeLabel.setFont(new Font("Segoe UI", Font.BOLD, 16));
+
+            JLabel telefoneLabel = new JLabel("📞 " + r.getTelefone(), SwingConstants.CENTER);
+            JLabel enderecoLabel = new JLabel("📍 " + r.getEndereco(), SwingConstants.CENTER);
+
+            // Adiciona componentes ao painel de conteúdo
+            contentPanel.add(Box.createVerticalStrut(10));
+            contentPanel.add(nomeLabel);
+            contentPanel.add(Box.createVerticalStrut(15));
+            contentPanel.add(telefoneLabel);
+            contentPanel.add(Box.createVerticalStrut(5));
+            contentPanel.add(enderecoLabel);
+            contentPanel.add(Box.createVerticalStrut(10));
+
+            // Adiciona o painel de conteúdo ao card (centralizado)
+            card.add(contentPanel, BorderLayout.CENTER);
+
+            // Borda e efeitos visuais
+            card.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(new Color(200, 200, 200)),
+                BorderFactory.createEmptyBorder(15, 15, 15, 15)
+            ));
+
+            // Efeito hover
             card.addMouseListener(new java.awt.event.MouseAdapter() {
+                public void mouseEntered(java.awt.event.MouseEvent evt) {
+                    card.setBorder(BorderFactory.createCompoundBorder(
+                        BorderFactory.createLineBorder(new Color(255, 153, 0)),
+                        BorderFactory.createEmptyBorder(15, 15, 15, 15)
+                    ));
+                    card.setCursor(new Cursor(Cursor.HAND_CURSOR));
+                }
+
+                public void mouseExited(java.awt.event.MouseEvent evt) {
+                    card.setBorder(BorderFactory.createCompoundBorder(
+                        BorderFactory.createLineBorder(new Color(200, 200, 200)),
+                        BorderFactory.createEmptyBorder(15, 15, 15, 15)
+                    ));
+                }
+
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
                     dispose();
-                    new CardapioClienteView(r, cliente).setVisible(true); 
+                    new CardapioClienteView(r, cliente).setVisible(true);
                 }
             });
 
             jPanelGrid.add(card);
         }
+
+        // Configuração do container principal
+        jPanelGrid.setBackground(new Color(240, 240, 240));
+        jPanelGrid.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
         jPanelGrid.revalidate();
         jPanelGrid.repaint();
