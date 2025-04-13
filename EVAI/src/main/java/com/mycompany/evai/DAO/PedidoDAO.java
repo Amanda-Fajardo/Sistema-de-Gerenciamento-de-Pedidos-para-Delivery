@@ -154,4 +154,135 @@ public class PedidoDAO {
       return pedidos;
        
    }
+     
+    public List<Pedido> consultarPorClienteEStatus(int idCliente, String status) {
+        Connection con = Conexao.getConexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        List<Pedido> pedidos = new ArrayList<>();
+
+        try {
+            stmt = con.prepareStatement(
+                "SELECT id_pedido, id_cliente, id_restaurante, status, data_pedido " +
+                "FROM pedidos " +
+                "WHERE id_cliente = ? AND status = ? " +
+                "ORDER BY data_pedido DESC");
+
+            stmt.setInt(1, idCliente);
+            stmt.setString(2, status);
+
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Pedido pedido = new Pedido();
+                pedido.setId(rs.getInt("id_pedido"));
+                pedido.setIdCliente(rs.getInt("id_cliente"));
+                pedido.setIdRestaurante(rs.getInt("id_restaurante"));
+                pedido.setStatus(rs.getString("status"));
+                pedido.setData(rs.getDate("data_pedido").toLocalDate());
+
+                pedidos.add(pedido);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            throw new RuntimeException("Erro ao consultar pedidos por cliente e status");
+        } finally {
+            Conexao.fecharConexao(con, stmt, rs);
+        }
+
+        return pedidos;
+    }
+    
+    public Pedido consultarPorId(int idPedido) {
+        Connection con = Conexao.getConexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            stmt = con.prepareStatement(
+                "SELECT id_pedido, id_cliente, id_restaurante, status, data_pedido " +
+                "FROM pedidos " +
+                "WHERE id_pedido = ?");
+
+            stmt.setInt(1, idPedido);
+            rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                Pedido pedido = new Pedido();
+                pedido.setId(rs.getInt("id_pedido"));
+                pedido.setIdCliente(rs.getInt("id_cliente"));
+                pedido.setIdRestaurante(rs.getInt("id_restaurante"));
+                pedido.setStatus(rs.getString("status"));
+                pedido.setData(rs.getDate("data_pedido").toLocalDate());
+
+                return pedido;
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            throw new RuntimeException("Erro ao consultar pedido por ID");
+        } finally {
+            Conexao.fecharConexao(con, stmt, rs);
+        }
+
+        return null;
+    }
+
+    /**
+     * Atualiza o status de um pedido
+     */
+    public void atualizarStatus(int idPedido, String novoStatus) {
+        Connection con = Conexao.getConexao();
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = con.prepareStatement(
+                "UPDATE pedidos SET status = ? WHERE id_pedido = ?");
+
+            stmt.setString(1, novoStatus);
+            stmt.setInt(2, idPedido);
+
+            stmt.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            throw new RuntimeException("Erro ao atualizar status do pedido");
+        } finally {
+            Conexao.fecharConexao(con, stmt);
+        }
+    }
+    
+    public List<Pedido> consultarPorClienteERestauranteEStatus(int idCliente, int idRestaurante, String status) {
+        Connection con = Conexao.getConexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        List<Pedido> pedidos = new ArrayList<>();
+
+        try {
+            stmt = con.prepareStatement(
+                "SELECT id_pedido, data_pedido " +
+                "FROM pedidos " +
+                "WHERE id_cliente = ? AND id_restaurante = ? AND status = ?");
+
+            stmt.setInt(1, idCliente);
+            stmt.setInt(2, idRestaurante);
+            stmt.setString(3, status);
+
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Pedido pedido = new Pedido();
+                pedido.setId(rs.getInt("id_pedido"));
+                pedido.setData(rs.getDate("data_pedido").toLocalDate());
+                pedidos.add(pedido);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            throw new RuntimeException("Erro ao consultar pedidos por status");
+        } finally {
+            Conexao.fecharConexao(con, stmt, rs);
+        }
+
+        return pedidos;
+    }
 }

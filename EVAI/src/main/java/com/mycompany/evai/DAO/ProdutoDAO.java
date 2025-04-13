@@ -183,5 +183,38 @@ public class ProdutoDAO {
     System.out.println("Produtos retornados: " + lista.size());
     return lista;
   }
+   
+    public Produto consultarPorId(int idProduto) {
+      Connection con = Conexao.getConexao();
+      PreparedStatement stmt = null;
+      ResultSet rs = null;
+
+      try {
+          stmt = con.prepareStatement(
+              "SELECT id_produto, nome, descricao, preco, id_restaurante " +
+              "FROM produtos WHERE id_produto = ?");
+
+          stmt.setInt(1, idProduto);
+          rs = stmt.executeQuery();
+
+          if (rs.next()) {
+              Produto produto = new Produto();
+              produto.setId(rs.getInt("id_produto"));
+              produto.setNome(rs.getString("nome"));
+              produto.setDescricao(rs.getString("descricao"));
+              produto.setPreco(rs.getFloat("preco"));  // Usando getFloat
+              produto.setIdRestaurante(rs.getInt("id_restaurante"));
+
+              return produto;
+          }
+      } catch (SQLException ex) {
+          ex.printStackTrace();
+          throw new RuntimeException("Erro ao consultar produto por ID", ex);
+      } finally {
+          Conexao.fecharConexao(con, stmt, rs);
+      }
+
+      return null;
+    }
 
 }

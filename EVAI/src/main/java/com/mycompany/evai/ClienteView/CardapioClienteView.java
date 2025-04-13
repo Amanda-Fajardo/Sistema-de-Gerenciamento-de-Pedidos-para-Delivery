@@ -368,7 +368,7 @@ public class CardapioClienteView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCarrinhoActionPerformed
 
     private void btnMeusPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMeusPedidosActionPerformed
-        // TODO add your handling code here:
+        new PedidosClienteView(cliente.getId(), restaurante.getId()).setVisible(true);
     }//GEN-LAST:event_btnMeusPedidosActionPerformed
 
     private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed

@@ -4,6 +4,16 @@
  */
 package com.mycompany.evai.ClienteView;
 
+import com.mycompany.evai.DAO.ItemPedidoDAO;
+import com.mycompany.evai.DAO.PedidoDAO;
+import com.mycompany.evai.DAO.ProdutoDAO;
+import com.mycompany.evai.entidade.ItemPedido;
+import com.mycompany.evai.entidade.Pedido;
+import com.mycompany.evai.entidade.Produto;
+import java.util.List;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author amand
@@ -13,8 +23,23 @@ public class PedidosClienteView extends javax.swing.JFrame {
     /**
      * Creates new form PedidosClientePendenteView
      */
-    public PedidosClienteView() {
+    
+    private int idCliente;
+    private int idRestaurante;
+    private ProdutoDAO produtoDAO;
+    private PedidoDAO pedidoDAO;
+    private ItemPedidoDAO itemPedidoDAO;
+    
+    public PedidosClienteView(int idCliente, int idRestaurante) {
+        this.idCliente = idCliente;
+        this.idRestaurante = idRestaurante;
+        this.produtoDAO = new ProdutoDAO();
+        this.pedidoDAO = new PedidoDAO();
+        this.itemPedidoDAO = new ItemPedidoDAO();
+
         initComponents();
+        configurarTabelas();
+        carregarPedidos();
     }
 
     /**
@@ -34,7 +59,7 @@ public class PedidosClienteView extends javax.swing.JFrame {
         spACaminho = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
         lbPedidos = new javax.swing.JLabel();
-        lbIcone = new javax.swing.JLabel();
+        jbAtualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,7 +113,12 @@ public class PedidosClienteView extends javax.swing.JFrame {
         lbPedidos.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         lbPedidos.setText("Pedidos");
 
-        lbIcone.setText("jLabel1");
+        jbAtualizar.setText("Atualizar");
+        jbAtualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbAtualizarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -98,8 +128,8 @@ public class PedidosClienteView extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addComponent(lbPedidos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lbIcone)
-                .addGap(75, 75, 75))
+                .addComponent(jbAtualizar)
+                .addGap(48, 48, 48))
             .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 891, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -111,7 +141,7 @@ public class PedidosClienteView extends javax.swing.JFrame {
                 .addGap(72, 72, 72)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbPedidos)
-                    .addComponent(lbIcone))
+                    .addComponent(jbAtualizar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48))
@@ -119,6 +149,11 @@ public class PedidosClienteView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jbAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAtualizarActionPerformed
+        // TODO add your handling code here:
+        carregarPedidos();
+    }//GEN-LAST:event_jbAtualizarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,17 +186,85 @@ public class PedidosClienteView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PedidosClienteView().setVisible(true);
+                new PedidosClienteView(idCliente, idRestaurante).setVisible(true);
             }
         });
     }
+    
+    private void configurarTabelas() {
+        String[] colunas = {"Produto", "Quantidade", "Preço Unit.", "Subtotal"};
+
+        DefaultTableModel model = new DefaultTableModel(colunas, 0) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+
+        jTable1.setModel(model);  // Tabela de pedidos pendentes
+        jTable3.setModel(new DefaultTableModel(colunas, 0));  // Tabela de pedidos em andamento
+        jTable4.setModel(new DefaultTableModel(colunas, 0));  // Tabela de pedidos a caminho
+    }
+    
+    private void carregarPedidos() {
+        // Pedidos Pendentes
+        preencherTabela(jTable1, pedidoDAO.consultarPorClienteERestauranteEStatus(
+        idCliente, idRestaurante, "pendente"), "Pendente");
+    
+        preencherTabela(jTable3, pedidoDAO.consultarPorClienteERestauranteEStatus(
+        idCliente, idRestaurante, "preparando"), "Preparando");
+
+        preencherTabela(jTable4, pedidoDAO.consultarPorClienteERestauranteEStatus(
+        idCliente, idRestaurante, "a caminho"), "A Caminho"); // Chamada adicionada
+    }
+
+    
+    private void preencherTabela(JTable tabela, List<Pedido> pedidos, String status) {
+    DefaultTableModel model = (DefaultTableModel) tabela.getModel();
+    model.setRowCount(0);
+
+    for (Pedido pedido : pedidos) {
+        // Adiciona cabeçalho do pedido
+        model.addRow(new Object[]{
+            "Pedido #" + pedido.getId() + " - " + status,
+            "", "", ""
+        });
+
+        List<ItemPedido> itens = itemPedidoDAO.consultarPorPedido(pedido.getId());
+        double totalPedido = 0;
+
+        for (ItemPedido item : itens) {
+            Produto produto = produtoDAO.consultarPorId(item.getIdProduto());
+            String nomeProduto = produto != null ? produto.getNome() : "Produto não encontrado";
+            double subtotal = item.getQuantidade() * item.getValorUnitario();
+            totalPedido += subtotal;
+
+            model.addRow(new Object[]{
+                "   " + nomeProduto, // Indentação para itens
+                item.getQuantidade(),
+                String.format("R$ %.2f", item.getValorUnitario()),
+                String.format("R$ %.2f", subtotal)
+            });
+        }
+
+        // Adiciona total do pedido
+        model.addRow(new Object[]{
+            "Total do Pedido:",
+            "", "",
+            String.format("R$ %.2f", totalPedido)
+        });
+
+        // Espaçamento entre pedidos
+        model.addRow(new Object[]{"", "", "", ""});
+    }
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
-    private javax.swing.JLabel lbIcone;
+    private javax.swing.JButton jbAtualizar;
     private javax.swing.JLabel lbPedidos;
     private javax.swing.JScrollPane spACaminho;
     private javax.swing.JScrollPane spEmAndamento;

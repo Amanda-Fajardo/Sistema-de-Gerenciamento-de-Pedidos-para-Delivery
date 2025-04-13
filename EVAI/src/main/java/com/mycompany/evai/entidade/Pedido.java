@@ -8,6 +8,7 @@ public class Pedido {
     private int idRestaurante;
     private String status;;
     private LocalDate data = LocalDate.now();
+    
 
     public int getId() {
         return id;

@@ -155,4 +155,81 @@ public class ItemPedidoDAO {
       return itemPedidos;
        
    }
+     
+    public List<ItemPedido> consultarItensPorClienteERestauranteEPedido(int idCliente, int idRestaurante, int idPedido) {
+        Connection con = Conexao.getConexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        List<ItemPedido> itens = new ArrayList<>();
+        ProdutoDAO produtoDAO = new ProdutoDAO();
+
+        try {
+            stmt = con.prepareStatement(
+                "SELECT ip.* " +
+                "FROM itens_pedido ip " +
+                "JOIN produtos p ON ip.id_produto = p.id_produto " +
+                "JOIN pedidos pd ON ip.id_pedido = pd.id_pedido " +
+                "WHERE pd.id_cliente = ? AND p.id_restaurante = ? AND ip.id_pedido = ?");
+
+            stmt.setInt(1, idCliente);
+            stmt.setInt(2, idRestaurante);
+            stmt.setInt(3, idPedido);
+
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                ItemPedido item = new ItemPedido();
+                item.setId(rs.getInt("id_itemPedido"));
+                item.setIdPedido(rs.getInt("id_pedido"));
+                item.setIdProduto(rs.getInt("id_produto"));
+                item.setQuantidade(rs.getInt("quantidade"));
+                item.setValorUnitario(rs.getFloat("preco_unitario"));
+
+                itens.add(item);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            throw new RuntimeException("Erro ao consultar itens do pedido");
+        } finally {
+            Conexao.fecharConexao(con, stmt, rs);
+        }
+
+        return itens;
+    }
+    
+    public List<ItemPedido> consultarPorPedido(int idPedido) {
+        Connection con = Conexao.getConexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        List<ItemPedido> itens = new ArrayList<>();
+
+        try {
+            stmt = con.prepareStatement(
+                "SELECT id_item, id_pedido, id_produto, quantidade, preco_unitario " +
+                "FROM itens_pedido WHERE id_pedido = ?");
+
+            stmt.setInt(1, idPedido);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                ItemPedido item = new ItemPedido();
+                item.setId(rs.getInt("id_item")); // Usando id_item aqui
+                item.setIdPedido(rs.getInt("id_pedido"));
+                item.setIdProduto(rs.getInt("id_produto"));
+                item.setQuantidade(rs.getInt("quantidade"));
+                item.setValorUnitario(rs.getFloat("preco_unitario"));
+
+                itens.add(item);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            throw new RuntimeException("Erro ao consultar itens do pedido", ex);
+        } finally {
+            Conexao.fecharConexao(con, stmt, rs);
+        }
+
+        return itens;
+    }
 }
