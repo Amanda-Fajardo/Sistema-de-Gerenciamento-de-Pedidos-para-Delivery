@@ -184,15 +184,18 @@ public class CarrinhoClienteView extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(119, 45, 139));
 
-        label1.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        label1.setFont(new java.awt.Font("Segoe UI Semilight", 1, 48)); // NOI18N
         label1.setForeground(new java.awt.Color(229, 229, 229));
         label1.setPreferredSize(new java.awt.Dimension(67, 60));
         label1.setText("CARRINHO");
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(229, 229, 229));
+        jLabel1.setFont(new java.awt.Font("Segoe UI Semilight", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(242, 242, 242));
         jLabel1.setText("ITEM");
 
+        jButton1.setBackground(new java.awt.Color(242, 242, 242));
+        jButton1.setFont(new java.awt.Font("Segoe UI Semilight", 3, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(119, 45, 139));
         jButton1.setText("CARRINHO");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -200,12 +203,12 @@ public class CarrinhoClienteView extends javax.swing.JPanel {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(229, 229, 229));
+        jLabel2.setFont(new java.awt.Font("Segoe UI Semilight", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(242, 242, 242));
         jLabel2.setText("TOTAL");
 
         btnFinalizarPedido.setBackground(new java.awt.Color(69, 168, 52));
-        btnFinalizarPedido.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnFinalizarPedido.setFont(new java.awt.Font("Segoe UI Semilight", 3, 18)); // NOI18N
         btnFinalizarPedido.setForeground(new java.awt.Color(229, 229, 229));
         btnFinalizarPedido.setText("Finalizar");
         btnFinalizarPedido.addActionListener(new java.awt.event.ActionListener() {
@@ -253,8 +256,8 @@ public class CarrinhoClienteView extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
