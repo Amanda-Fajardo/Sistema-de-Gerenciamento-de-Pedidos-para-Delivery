@@ -69,15 +69,10 @@ public class CardapioClienteView extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        jPanel3 = new javax.swing.JPanel();
         jLCardapio = new javax.swing.JLabel();
-        btnCarrinho = new javax.swing.JButton();
-        btnMeusPedidos = new javax.swing.JButton();
-        jLTelefone = new javax.swing.JLabel();
-        jLEndereco = new javax.swing.JLabel();
-        btnAnterior = new javax.swing.JButton();
-        btnProximo = new javax.swing.JButton();
         btnAtualizarCardapio = new javax.swing.JButton();
-        jBVoltar = new javax.swing.JButton();
+        btnCarrinho = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         panelCarrossel = new javax.swing.JPanel();
         pnlProduto1 = new javax.swing.JPanel();
@@ -95,15 +90,33 @@ public class CardapioClienteView extends javax.swing.JFrame {
         lbDescricao3 = new javax.swing.JLabel();
         lbPreco3 = new javax.swing.JLabel();
         btnAddCarrinho3 = new javax.swing.JButton();
+        btnProximo = new javax.swing.JButton();
+        btnMeusPedidos = new javax.swing.JButton();
+        btnAnterior = new javax.swing.JButton();
+        jLEndereco = new javax.swing.JLabel();
+        jBVoltar = new javax.swing.JButton();
+        jLTelefone = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cardápio");
         setBackground(new java.awt.Color(119, 45, 139));
-        setPreferredSize(new java.awt.Dimension(1219, 1083));
+        setPreferredSize(new java.awt.Dimension(3000, 1083));
+
+        jPanel3.setBackground(new java.awt.Color(119, 45, 139));
+        jPanel3.setPreferredSize(new java.awt.Dimension(1000, 872));
 
         jLCardapio.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLCardapio.setForeground(new java.awt.Color(255, 255, 255));
         jLCardapio.setText("Cardápio");
+
+        btnAtualizarCardapio.setBackground(new java.awt.Color(255, 153, 0));
+        btnAtualizarCardapio.setForeground(new java.awt.Color(255, 255, 255));
+        btnAtualizarCardapio.setText("Atualizar Cardápio");
+        btnAtualizarCardapio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtualizarCardapioActionPerformed(evt);
+            }
+        });
 
         btnCarrinho.setBackground(new java.awt.Color(255, 153, 0));
         btnCarrinho.setForeground(new java.awt.Color(255, 255, 255));
@@ -115,48 +128,7 @@ public class CardapioClienteView extends javax.swing.JFrame {
             }
         });
 
-        btnMeusPedidos.setBackground(new java.awt.Color(255, 153, 0));
-        btnMeusPedidos.setForeground(new java.awt.Color(255, 255, 255));
-        btnMeusPedidos.setText("Meus Pedidos");
-        btnMeusPedidos.setPreferredSize(new java.awt.Dimension(129, 23));
-        btnMeusPedidos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMeusPedidosActionPerformed(evt);
-            }
-        });
-
-        btnAnterior.setText("<<");
-        btnAnterior.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAnteriorActionPerformed(evt);
-            }
-        });
-
-        btnProximo.setText(">>");
-        btnProximo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnProximoActionPerformed(evt);
-            }
-        });
-
-        btnAtualizarCardapio.setBackground(new java.awt.Color(255, 153, 0));
-        btnAtualizarCardapio.setForeground(new java.awt.Color(255, 255, 255));
-        btnAtualizarCardapio.setText("Atualizar Cardápio");
-        btnAtualizarCardapio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAtualizarCardapioActionPerformed(evt);
-            }
-        });
-
-        jBVoltar.setBackground(new java.awt.Color(255, 153, 0));
-        jBVoltar.setForeground(new java.awt.Color(255, 255, 255));
-        jBVoltar.setText("<<");
-        jBVoltar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBVoltarActionPerformed(evt);
-            }
-        });
-
+        jPanel2.setBackground(new java.awt.Color(255, 153, 0));
         jPanel2.setMinimumSize(new java.awt.Dimension(110, 351));
         jPanel2.setPreferredSize(new java.awt.Dimension(1219, 400));
 
@@ -304,82 +276,130 @@ public class CardapioClienteView extends javax.swing.JFrame {
 
         jPanel2.add(panelCarrossel);
 
+        btnProximo.setBackground(new java.awt.Color(255, 153, 0));
+        btnProximo.setForeground(new java.awt.Color(255, 255, 255));
+        btnProximo.setText(">>");
+        btnProximo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProximoActionPerformed(evt);
+            }
+        });
+
+        btnMeusPedidos.setBackground(new java.awt.Color(255, 153, 0));
+        btnMeusPedidos.setForeground(new java.awt.Color(255, 255, 255));
+        btnMeusPedidos.setText("Meus Pedidos");
+        btnMeusPedidos.setPreferredSize(new java.awt.Dimension(129, 23));
+        btnMeusPedidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMeusPedidosActionPerformed(evt);
+            }
+        });
+
+        btnAnterior.setBackground(new java.awt.Color(255, 153, 0));
+        btnAnterior.setForeground(new java.awt.Color(255, 255, 255));
+        btnAnterior.setText("<<");
+        btnAnterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAnteriorActionPerformed(evt);
+            }
+        });
+
+        jBVoltar.setBackground(new java.awt.Color(255, 153, 0));
+        jBVoltar.setForeground(new java.awt.Color(255, 255, 255));
+        jBVoltar.setText("<<");
+        jBVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBVoltarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCarrinho, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnMeusPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnAtualizarCardapio)
+                .addGap(257, 257, 257))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1640, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(496, 496, 496)
+                .addComponent(btnAnterior)
+                .addGap(274, 274, 274)
+                .addComponent(btnProximo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGap(24, 24, 24)
+                    .addComponent(jBVoltar)
+                    .addGap(18, 18, 18)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addContainerGap(1563, Short.MAX_VALUE))
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addComponent(jLCardapio)
+                            .addContainerGap(1563, Short.MAX_VALUE)))))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(107, 107, 107)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCarrinho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMeusPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAtualizarCardapio))
+                .addGap(99, 99, 99)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAnterior)
+                    .addComponent(btnProximo))
+                .addContainerGap(219, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jBVoltar)
+                        .addComponent(jLCardapio))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 183, Short.MAX_VALUE)
+                    .addComponent(jLTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(jLEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(591, 591, 591)))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jBVoltar)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLCardapio)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCarrinho, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnMeusPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnAtualizarCardapio)
-                        .addGap(64, 64, 64))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(402, 402, 402)
-                .addComponent(btnAnterior)
-                .addGap(274, 274, 274)
-                .addComponent(btnProximo)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1702, Short.MAX_VALUE)
+                .addContainerGap(53, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 1640, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jBVoltar)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLCardapio)
-                        .addComponent(btnCarrinho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnMeusPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnAtualizarCardapio)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(162, 162, 162)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAnterior)
-                    .addComponent(btnProximo))
-                .addGap(507, 507, 507))
+                .addGap(42, 42, 42)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 892, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(308, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCarrinhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarrinhoActionPerformed
+    private void jBVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVoltarActionPerformed
         // TODO add your handling code here:
-        CarrinhoClienteView painel = new CarrinhoClienteView(cliente.getId(), restaurante.getId());
-    
-        JFrame frame = new JFrame("Carrinho de Compras");
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
-        frame.setContentPane(painel);
-        frame.pack();
-        frame.setLocationRelativeTo(null); 
-        frame.setVisible(true);
-    }//GEN-LAST:event_btnCarrinhoActionPerformed
-
-    private void btnMeusPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMeusPedidosActionPerformed
-        new PedidosClienteView(cliente.getId(), restaurante.getId()).setVisible(true);
-    }//GEN-LAST:event_btnMeusPedidosActionPerformed
+        dispose();
+        new TelaInicialCliente(cliente).setVisible(true);
+    }//GEN-LAST:event_jBVoltarActionPerformed
 
     private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
         // TODO add your handling code here:
@@ -389,10 +409,9 @@ public class CardapioClienteView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAnteriorActionPerformed
 
-    private void btnAddCarrinhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCarrinhoActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_btnAddCarrinhoActionPerformed
+    private void btnMeusPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMeusPedidosActionPerformed
+        new PedidosClienteView(cliente.getId(), restaurante.getId()).setVisible(true);
+    }//GEN-LAST:event_btnMeusPedidosActionPerformed
 
     private void btnProximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProximoActionPerformed
         // TODO add your handling code here:
@@ -402,6 +421,23 @@ public class CardapioClienteView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnProximoActionPerformed
 
+    private void btnAddCarrinhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCarrinhoActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_btnAddCarrinhoActionPerformed
+
+    private void btnCarrinhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarrinhoActionPerformed
+        // TODO add your handling code here:
+        CarrinhoClienteView painel = new CarrinhoClienteView(cliente.getId(), restaurante.getId());
+
+        JFrame frame = new JFrame("Carrinho de Compras");
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setContentPane(painel);
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }//GEN-LAST:event_btnCarrinhoActionPerformed
+
     private void btnAtualizarCardapioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarCardapioActionPerformed
         // TODO add your handling code here:
         ProdutoDAO produtoDao = new ProdutoDAO();
@@ -409,12 +445,6 @@ public class CardapioClienteView extends javax.swing.JFrame {
         paginaAtual = 0;
         atualizarCarrossel();
     }//GEN-LAST:event_btnAtualizarCardapioActionPerformed
-
-    private void jBVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVoltarActionPerformed
-        // TODO add your handling code here:
-         dispose();
-         new TelaInicialCliente(cliente).setVisible(true);
-    }//GEN-LAST:event_jBVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -468,6 +498,7 @@ public class CardapioClienteView extends javax.swing.JFrame {
     private javax.swing.JLabel jLTelefone;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lbDescricao;
     private javax.swing.JLabel lbDescricao2;
     private javax.swing.JLabel lbDescricao3;
