@@ -535,4 +535,7 @@ public class CardapioClienteView extends javax.swing.JFrame {
 
         return card;
     }
+    public void atualizarCarrosselCliente(){
+        atualizarCarrossel();
+    }
 }

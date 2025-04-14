@@ -7,6 +7,7 @@ package com.mycompany.evai.RestauranteView;
 import com.mycompany.evai.RestauranteView.*;
 import com.mycompany.evai.DAO.RestauranteDAO;
 import com.mycompany.evai.entidade.Restaurante;
+import com.mycompany.evai.Sessao.*;
 /**
  *
  * @author amand
@@ -40,6 +41,7 @@ public class CadastroRestauranteView extends javax.swing.JFrame {
         btnLogin = new javax.swing.JButton();
         pwSenha = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
+        btnSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,6 +89,13 @@ public class CadastroRestauranteView extends javax.swing.JFrame {
 
         jLabel1.setText("Se já é parceiro, faça login");
 
+        btnSair.setText("<");
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -116,11 +125,17 @@ public class CadastroRestauranteView extends javax.swing.JFrame {
                 .addGap(159, 159, 159)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(120, 120, 120)
+                .addGap(19, 19, 19)
+                .addComponent(btnSair)
+                .addGap(78, 78, 78)
                 .addComponent(lbMeusDados)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbLogoEvai, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -203,6 +218,13 @@ public class CadastroRestauranteView extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnLoginActionPerformed
 
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        // TODO add your handling code here:
+        SessaoView telaInicial = new SessaoView();
+        telaInicial.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnSairActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -241,6 +263,7 @@ public class CadastroRestauranteView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
+    private javax.swing.JButton btnSair;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

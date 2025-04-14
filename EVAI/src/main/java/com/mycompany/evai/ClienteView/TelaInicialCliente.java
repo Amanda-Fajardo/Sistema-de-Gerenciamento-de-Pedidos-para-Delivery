@@ -4,6 +4,7 @@
  */
 package com.mycompany.evai.ClienteView;
 
+import com.mycompany.evai.Sessao.*;
 import com.mycompany.evai.ClienteView.LoginClienteView;
 import com.mycompany.evai.DAO.RestauranteDAO;
 import com.mycompany.evai.entidade.Restaurante;
@@ -42,6 +43,7 @@ public class TelaInicialCliente extends javax.swing.JFrame {
         jPanelGrid = new javax.swing.JPanel();
         btnAtualizar = new javax.swing.JButton();
         btnLogin = new javax.swing.JButton();
+        btnSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,6 +68,13 @@ public class TelaInicialCliente extends javax.swing.JFrame {
             }
         });
 
+        btnSair.setText("<");
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -84,11 +93,17 @@ public class TelaInicialCliente extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnLogin)
                         .addGap(346, 346, 346))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(btnSair)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(61, 61, 61)
+                .addGap(20, 20, 20)
+                .addComponent(btnSair)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addComponent(jPanelGrid, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -114,6 +129,13 @@ public class TelaInicialCliente extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnLoginActionPerformed
 
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        // TODO add your handling code here:
+        SessaoView telaInicial = new SessaoView();
+        telaInicial.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnSairActionPerformed
+
     private void carregarRestaurantes() {
         RestauranteDAO dao = new RestauranteDAO();
         List<Restaurante> lista = dao.consulta();
@@ -134,7 +156,7 @@ public class TelaInicialCliente extends javax.swing.JFrame {
              card.addMouseListener(new java.awt.event.MouseAdapter() {
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dispose();
-                new CardapioClienteView(r).setVisible(true);
+                new TelaInicialCliente2().setVisible(true);
             }
     });
         }
@@ -181,6 +203,7 @@ public class TelaInicialCliente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtualizar;
     private javax.swing.JButton btnLogin;
+    private javax.swing.JButton btnSair;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanelGrid;
     // End of variables declaration//GEN-END:variables

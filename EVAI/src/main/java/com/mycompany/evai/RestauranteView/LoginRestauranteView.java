@@ -7,7 +7,7 @@ package com.mycompany.evai.RestauranteView;
 import com.mycompany.evai.RestauranteView.*;
 import com.mycompany.evai.DAO.RestauranteDAO;
 import com.mycompany.evai.entidade.Restaurante;
-//import com.mycompany.evai.ClienteView.CardapioRestauranteView;
+import com.mycompany.evai.Sessao.Sessao;
 import javax.swing.JOptionPane;
 
 /**
@@ -118,10 +118,11 @@ public class LoginRestauranteView extends javax.swing.JFrame {
         Restaurante restaurante = dao.autenticar(nome, senha);
         
         if (restaurante != null){
+            Sessao.setRestauranteLogado(restaurante);
             JOptionPane.showMessageDialog(null, "Login realizado com sucesso!");
             
             this.dispose();
-            //new CardapioRestauranteView().setVisible(true);
+            new CardapioRestauranteView().setVisible(true);
             
         
         } else {

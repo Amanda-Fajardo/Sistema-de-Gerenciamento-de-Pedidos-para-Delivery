@@ -5,22 +5,44 @@
 package com.mycompany.evai.RestauranteView;
 
 import com.mycompany.evai.RestauranteView.*;
+import com.mycompany.evai.Sessao.Sessao;
 import com.mycompany.evai.DAO.RestauranteDAO;
 import com.mycompany.evai.entidade.Restaurante;
-//import com.mycompany.evai.ClienteView.CardapioRestauranteView;
+import com.mycompany.evai.ClienteView.CardapioClienteView;
+import com.mycompany.evai.DAO.ProdutoDAO;
+import com.mycompany.evai.entidade.Produto;
+import java.text.NumberFormat;
+import java.util.Locale;
 import javax.swing.JOptionPane;
+import javax.swing.text.NumberFormatter;
 
 /**
  *
  * @author amand
  */
 public class EditarProdutoView extends javax.swing.JFrame {
+    private Produto produtoAtual;
+    
     /**
      * Creates new form LoginClienteView
      */
+    public EditarProdutoView(Produto produto) {
+        initComponents();
+        this.produtoAtual = produto;
+        
+        txtNome.setText(produto.getNome());
+        txtDescricao.setText(produto.getDescricao());
+        
+        NumberFormat nf = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
+        txtPreco.setText(String.format("R$ %.2f", produto.getPreco()));
+    }
+
     public EditarProdutoView() {
         initComponents();
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,30 +55,51 @@ public class EditarProdutoView extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        txtUsuario = new javax.swing.JTextField();
-        btnLogin = new javax.swing.JButton();
-        pwSenha = new javax.swing.JPasswordField();
+        txtDescricao = new javax.swing.JTextField();
+        btnSalvar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
+        txtNome = new javax.swing.JTextField();
+        txtPreco = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel1.setText("EVAI");
 
-        txtUsuario.setText("Usuário");
-        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
+        txtDescricao.setText("Descrição");
+        txtDescricao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsuarioActionPerformed(evt);
+                txtDescricaoActionPerformed(evt);
             }
         });
 
-        btnLogin.setText("Login");
-        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+        btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLoginActionPerformed(evt);
+                btnSalvarActionPerformed(evt);
             }
         });
 
-        pwSenha.setText("jPasswordField1");
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
+
+        txtNome.setText("Nome do prato");
+        txtNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomeActionPerformed(evt);
+            }
+        });
+
+        txtPreco.setText("Preço");
+        txtPreco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPrecoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -65,29 +108,36 @@ public class EditarProdutoView extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(208, 208, 208)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pwSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(288, 288, 288)
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(294, 294, 294)
-                        .addComponent(btnLogin)))
-                .addContainerGap(243, Short.MAX_VALUE))
+                        .addGap(271, 271, 271)
+                        .addComponent(btnSalvar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnCancelar))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(220, 220, 220)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(234, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(76, 76, 76)
                 .addComponent(jLabel1)
-                .addGap(101, 101, 101)
-                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(pwSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(85, 85, 85)
-                .addComponent(btnLogin)
+                .addGap(78, 78, 78)
+                .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSalvar)
+                    .addComponent(btnCancelar))
                 .addContainerGap(106, Short.MAX_VALUE))
         );
 
@@ -105,30 +155,59 @@ public class EditarProdutoView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
+    private void txtDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescricaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsuarioActionPerformed
+    }//GEN-LAST:event_txtDescricaoActionPerformed
 
-    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {                                          
         // TODO add your handling code here:
-        String nome = txtUsuario.getText();
-        String senha = new String (pwSenha.getPassword());
-        
-        RestauranteDAO dao = new RestauranteDAO();
-        Restaurante restaurante = dao.autenticar(nome, senha);
-        
-        if (restaurante != null){
-            JOptionPane.showMessageDialog(null, "Login realizado com sucesso!");
-            
-            this.dispose();
-            //new CardapioRestauranteView().setVisible(true);
-            
-        
-        } else {
-            JOptionPane.showMessageDialog(null, "Nome ou senha incorretos!", "Erro", JOptionPane.ERROR_MESSAGE);
-            
+        try {
+        String nome = txtNome.getText();
+        String descricao = txtDescricao.getText();
+        String precoTexto = txtPreco.getText().replace("R$", "").replace(",", ".").trim();
+        float preco = Float.parseFloat(precoTexto);
+
+        produtoAtual.setNome(nome);
+        produtoAtual.setDescricao(descricao);
+        produtoAtual.setPreco(preco);
+
+        ProdutoDAO produtoDAO = new ProdutoDAO();
+        produtoDAO.alterar(produtoAtual);
+
+        // Atualiza os carrosséis
+        Restaurante restaurante = Sessao.getRestauranteLogado(); // Obtém o restaurante logado
+        if (restaurante == null) {
+            JOptionPane.showMessageDialog(this, "Erro: Restaurante não encontrado na sessão.", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
         }
-    }//GEN-LAST:event_btnLoginActionPerformed
+
+        CardapioRestauranteView cardapioRestauranteView = new CardapioRestauranteView(restaurante);
+        cardapioRestauranteView.atualizarCarrosselRestaurante();
+
+        CardapioClienteView cardapioClienteView = new CardapioClienteView(restaurante);
+        cardapioClienteView.atualizarCarrosselCliente();
+
+        JOptionPane.showMessageDialog(this, "Produto atualizado com sucesso!");
+        this.dispose();
+    } catch (NumberFormatException ex) {
+        JOptionPane.showMessageDialog(this, "Preço inválido. Por favor, insira um número válido.", "Erro", JOptionPane.ERROR_MESSAGE);
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Erro ao atualizar o produto: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+    }
+    }                                        
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeActionPerformed
+
+    private void txtPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPrecoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,10 +252,12 @@ public class EditarProdutoView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnLogin;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnSalvar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField pwSenha;
-    private javax.swing.JTextField txtUsuario;
+    private javax.swing.JTextField txtDescricao;
+    private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtPreco;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,6 +5,7 @@
 package com.mycompany.evai.RestauranteView;
 
 import com.mycompany.evai.ClienteView.*;
+import com.mycompany.evai.RestauranteView.*;
 import com.mycompany.evai.DAO.ProdutoDAO;
 import com.mycompany.evai.entidade.Produto;
 import com.mycompany.evai.entidade.Restaurante;
@@ -93,7 +94,7 @@ public class EditarCardapioView extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnAddProduto = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cardápio");
@@ -143,6 +144,11 @@ public class EditarCardapioView extends javax.swing.JFrame {
         });
 
         jButton4.setText("Editar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlProduto1Layout = new javax.swing.GroupLayout(pnlProduto1);
         pnlProduto1.setLayout(pnlProduto1Layout);
@@ -305,10 +311,15 @@ public class EditarCardapioView extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Adicionar Produto");
-        jButton2.setMaximumSize(new java.awt.Dimension(111, 23));
-        jButton2.setMinimumSize(new java.awt.Dimension(111, 23));
-        jButton2.setPreferredSize(new java.awt.Dimension(111, 23));
+        btnAddProduto.setText("Adicionar Produto");
+        btnAddProduto.setMaximumSize(new java.awt.Dimension(111, 23));
+        btnAddProduto.setMinimumSize(new java.awt.Dimension(111, 23));
+        btnAddProduto.setPreferredSize(new java.awt.Dimension(111, 23));
+        btnAddProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddProdutoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -329,7 +340,7 @@ public class EditarCardapioView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(25, 25, 25)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAddProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(53, 53, 53))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(402, 402, 402)
@@ -351,7 +362,7 @@ public class EditarCardapioView extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLCardapio)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnAddProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -387,11 +398,12 @@ public class EditarCardapioView extends javax.swing.JFrame {
     private void jBVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVoltarActionPerformed
         // TODO add your handling code here:
          dispose();
-         new TelaInicialCliente().setVisible(true);
+         new CardapioRestauranteView().setVisible(true);
     }//GEN-LAST:event_jBVoltarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -405,6 +417,20 @@ public class EditarCardapioView extends javax.swing.JFrame {
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        EditarProdutoView editar = new EditarProdutoView();
+        editar.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void btnAddProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProdutoActionPerformed
+        // TODO add your handling code here:
+        AdicionarProdutoView adicionar = new AdicionarProdutoView();
+        adicionar.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnAddProdutoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -450,12 +476,12 @@ public class EditarCardapioView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddProduto;
     private javax.swing.JButton btnAnterior;
     private javax.swing.JButton btnProximo;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jBVoltar;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
@@ -509,11 +535,6 @@ public class EditarCardapioView extends javax.swing.JFrame {
         card.setPreferredSize(new Dimension(250, 300));
         card.setMaximumSize(new Dimension(250, 300));
 
-        card.setBorder(BorderFactory.createCompoundBorder(
-            BorderFactory.createLineBorder(Color.GRAY),
-            BorderFactory.createEmptyBorder(15, 15, 15, 15)
-        ));
-
         JLabel lblImagem = new JLabel(new ImageIcon("/com/mycompany/evai/ClienteView/assets/placeholder.png")); 
         lblImagem.setPreferredSize(new Dimension(150, 150));
         lblImagem.setMaximumSize(new Dimension(150, 150));
@@ -532,8 +553,15 @@ public class EditarCardapioView extends javax.swing.JFrame {
         lblDesc.setAlignmentX(Component.CENTER_ALIGNMENT);
         lblPreco.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        JButton btnCarrinho = new JButton("Adicionar ao carrinho");
-        btnCarrinho.setAlignmentX(Component.CENTER_ALIGNMENT);
+        JButton btnEditar = new JButton("Editar");
+        btnEditar.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        // Adiciona um ActionListener para abrir a tela de edição
+        btnEditar.addActionListener(evt -> {
+            EditarProdutoView editarProdutoView = new EditarProdutoView(produto);
+            editarProdutoView.setVisible(true);
+            this.dispose(); // Fecha a tela atual
+        });
 
         card.add(lblImagem);
         card.add(Box.createVerticalStrut(15));
@@ -543,7 +571,7 @@ public class EditarCardapioView extends javax.swing.JFrame {
         card.add(Box.createVerticalStrut(15));
         card.add(lblPreco);
         card.add(Box.createVerticalStrut(15));
-        card.add(btnCarrinho);
+        card.add(btnEditar);
 
         return card;
     }
