@@ -7,6 +7,7 @@ package com.mycompany.evai.ClienteView;
 import com.mycompany.evai.DAO.ClienteDAO;
 import com.mycompany.evai.entidade.Cliente;
 import com.mycompany.evai.ClienteView.CardapioClienteView;
+import com.mycompany.evai.Sessao.Sessao;
 import javax.swing.JOptionPane;
 
 /**
@@ -36,6 +37,9 @@ public class LoginClienteView extends javax.swing.JFrame {
         txtUsuario = new javax.swing.JTextField();
         btnLogin = new javax.swing.JButton();
         pwSenha = new javax.swing.JPasswordField();
+        btnSair = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        btnNovoUsuario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
@@ -64,37 +68,68 @@ public class LoginClienteView extends javax.swing.JFrame {
 
         pwSenha.setText("jPasswordField1");
 
+        btnSair.setText("<");
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("É novo aqui? Cadastre-se");
+
+        btnNovoUsuario.setText("Cadastrar");
+        btnNovoUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNovoUsuarioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(txtUsuario)
-                    .addComponent(pwSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(79, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(188, 188, 188)
-                .addComponent(btnLogin)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(161, 161, 161))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(208, 208, 208)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pwSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(288, 288, 288)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(295, 295, 295)
+                        .addComponent(btnLogin))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(268, 268, 268)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(297, 297, 297)
+                        .addComponent(btnNovoUsuario))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(btnSair)))
+                .addContainerGap(243, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(79, 79, 79)
+                .addGap(21, 21, 21)
+                .addComponent(btnSair)
+                .addGap(32, 32, 32)
                 .addComponent(jLabel1)
-                .addGap(107, 107, 107)
+                .addGap(82, 82, 82)
                 .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(28, 28, 28)
                 .addComponent(pwSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
+                .addGap(43, 43, 43)
                 .addComponent(btnLogin)
-                .addContainerGap(153, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(btnNovoUsuario)
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
@@ -115,10 +150,11 @@ public class LoginClienteView extends javax.swing.JFrame {
         Cliente cliente = dao.autenticar(nome, senha);
         
         if (cliente != null){
+            Sessao.setClienteLogado(cliente);
             JOptionPane.showMessageDialog(null, "Login realizado com sucesso!");
             
             this.dispose();
-            new TelaInicialCliente(cliente).setVisible(true);
+            new TelaInicialCliente2().setVisible(true);
             
         
         } else {
@@ -126,6 +162,19 @@ public class LoginClienteView extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        // TODO add your handling code here:
+        TelaInicialCliente telaInicial = new TelaInicialCliente();
+        telaInicial.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnSairActionPerformed
+
+    private void btnNovoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoUsuarioActionPerformed
+        // TODO add your handling code here:
+        new CadastroUsuarioView().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnNovoUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -164,7 +213,10 @@ public class LoginClienteView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
+    private javax.swing.JButton btnNovoUsuario;
+    private javax.swing.JButton btnSair;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField pwSenha;
     private javax.swing.JTextField txtUsuario;

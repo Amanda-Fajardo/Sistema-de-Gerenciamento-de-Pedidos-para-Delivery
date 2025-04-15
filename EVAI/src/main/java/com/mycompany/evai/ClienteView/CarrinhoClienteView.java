@@ -16,6 +16,7 @@ import com.mycompany.evai.entidade.Restaurante;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +37,10 @@ public class CarrinhoClienteView extends javax.swing.JPanel {
     private int idCliente, idRestaurante;
     private List<ItemCarrinho> itensCarrinho = new ArrayList<>();;
     private double total = 0.0;
+
+    CarrinhoClienteView() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     /**
      * Creates new form CarrinhoClienteView

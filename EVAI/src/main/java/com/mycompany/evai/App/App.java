@@ -44,11 +44,11 @@ public class App {
         removRestaurante.setEndereco("Rua Y - 0000");
         removRestaurante.setTelefone("7490873711");
 
-        restauranteDAO.excluir(removRestaurante);
+       /*  restauranteDAO.excluir(removRestaurante);
 
         removRestaurante.setId(8);
 
-        restauranteDAO.alterar(removRestaurante);
+        restauranteDAO.alterar(removRestaurante);*/
 
     }
 }

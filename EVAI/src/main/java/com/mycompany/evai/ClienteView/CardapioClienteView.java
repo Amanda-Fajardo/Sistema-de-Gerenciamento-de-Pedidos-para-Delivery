@@ -4,6 +4,7 @@
  */
 package com.mycompany.evai.ClienteView;
 
+
 import com.mycompany.evai.DAO.ProdutoDAO;
 import com.mycompany.evai.entidade.Cliente;
 import com.mycompany.evai.entidade.Produto;
@@ -395,11 +396,22 @@ public class CardapioClienteView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jBVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVoltarActionPerformed
+    private void btnCarrinhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarrinhoActionPerformed
+        // TODO add your handling code here:    
+        CarrinhoClienteView painel = new CarrinhoClienteView();
+    
+        JFrame frame = new JFrame("Carrinho de Compras");
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
+        frame.setContentPane(painel);
+        frame.pack();
+        frame.setLocationRelativeTo(null); 
+        frame.setVisible(true);
+    }//GEN-LAST:event_btnCarrinhoActionPerformed
+
+    private void btnMeusPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMeusPedidosActionPerformed
         // TODO add your handling code here:
-        dispose();
-        new TelaInicialCliente(cliente).setVisible(true);
-    }//GEN-LAST:event_jBVoltarActionPerformed
+        new PedidosClienteView().setVisible(true);
+    }//GEN-LAST:event_btnMeusPedidosActionPerformed
 
     private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
         // TODO add your handling code here:
@@ -446,6 +458,12 @@ public class CardapioClienteView extends javax.swing.JFrame {
         atualizarCarrossel();
     }//GEN-LAST:event_btnAtualizarCardapioActionPerformed
 
+    private void jBVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVoltarActionPerformed
+        // TODO add your handling code here:
+         dispose();
+         new TelaInicialCliente2().setVisible(true);
+    }//GEN-LAST:event_jBVoltarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -477,6 +495,7 @@ public class CardapioClienteView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                Restaurante r = null;
                 new CardapioClienteView(r).setVisible(true);
             }
         });
@@ -588,6 +607,7 @@ public class CardapioClienteView extends javax.swing.JFrame {
 
         return card;
     }
-    
-    
+    public void atualizarCarrosselCliente(){
+        atualizarCarrossel();
+    }
 }

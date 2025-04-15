@@ -38,8 +38,7 @@ public class CadastroUsuarioView extends javax.swing.JFrame {
         btnSalvar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         pwSenha = new javax.swing.JPasswordField();
-        jBLogin = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -84,21 +83,20 @@ public class CadastroUsuarioView extends javax.swing.JFrame {
         btnCancelar.setBackground(new java.awt.Color(255, 153, 0));
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setText("Cancelar");
-
-        pwSenha.setText("Senha");
-
-        jBLogin.setBackground(new java.awt.Color(255, 153, 0));
-        jBLogin.setForeground(new java.awt.Color(255, 255, 255));
-        jBLogin.setText("Login");
-        jBLogin.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBLoginActionPerformed(evt);
+                btnCancelarActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Já possui conta?");
+        pwSenha.setText("Senha");
+
+        jButton2.setText("<");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -121,20 +119,16 @@ public class CadastroUsuarioView extends javax.swing.JFrame {
                     .addComponent(pwSenha))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(125, 125, 125)
-                .addComponent(lbMeusDados)
-                .addContainerGap(139, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(jBLogin))
-                .addGap(44, 44, 44))
+                .addGap(17, 17, 17)
+                .addComponent(jButton2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(97, 97, 97)
+                .addGap(26, 26, 26)
+                .addComponent(jButton2)
+                .addGap(48, 48, 48)
                 .addComponent(lbMeusDados)
                 .addGap(29, 29, 29)
                 .addComponent(lbLogoEvai, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -196,26 +190,36 @@ public class CadastroUsuarioView extends javax.swing.JFrame {
         endereco = txtEndereco.getText();
         senha = pwSenha.getText();
 
-        // Criando o objeto Cliente
-        Cliente novoCliente = new Cliente();
-        novoCliente.setNome(nome);
-        novoCliente.setTelefone(telefone);
-        novoCliente.setEndereco(endereco);
-        novoCliente.setSenha(senha);
-
-        txtNome.setText("");
-        txtTelefone.setText("");
-        txtEndereco.setText("");
-        pwSenha.setText("");
-        
-        ClienteDAO clienteDao = new ClienteDAO();
-        clienteDao.incluir(novoCliente);
+    // Criando o objeto Cliente
+    Cliente novoCliente = new Cliente();
+    novoCliente.setNome(nome);
+    novoCliente.setTelefone(telefone);
+    novoCliente.setEndereco(endereco);
+    novoCliente.setSenha(senha);
+    
+    txtNome.setText("");
+    txtTelefone.setText("");
+    txtEndereco.setText("");
+    pwSenha.setText("");
+    
+    ClienteDAO clienteDao = new ClienteDAO();
+    clienteDao.incluir (novoCliente);
+    
+    dispose();
+    new TelaInicialCliente().setVisible(true);
     }//GEN-LAST:event_btnSalvarActionPerformed
 
-    private void jBLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLoginActionPerformed
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
+        dispose();
+        new TelaInicialCliente().setVisible(true);
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        dispose();
         new LoginClienteView().setVisible(true);
-    }//GEN-LAST:event_jBLoginActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -255,8 +259,7 @@ public class CadastroUsuarioView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnSalvar;
-    private javax.swing.JButton jBLogin;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbLogoEvai;
     private javax.swing.JLabel lbMeusDados;
