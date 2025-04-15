@@ -48,6 +48,8 @@ public class CadastroRestauranteView extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jPanel2.setBackground(new java.awt.Color(119, 45, 139));
+
         lbMeusDados.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lbMeusDados.setForeground(new java.awt.Color(255, 255, 255));
         lbMeusDados.setText("Dados do Restaurante");
@@ -59,6 +61,8 @@ public class CadastroRestauranteView extends javax.swing.JFrame {
             }
         });
 
+        btnLogin.setBackground(new java.awt.Color(255, 153, 0));
+        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("Login");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,6 +77,7 @@ public class CadastroRestauranteView extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Se já é parceiro, faça login");
 
         txtNome.setText("Nome");
@@ -82,6 +87,8 @@ public class CadastroRestauranteView extends javax.swing.JFrame {
             }
         });
 
+        btnSalvar.setBackground(new java.awt.Color(255, 153, 0));
+        btnSalvar.setForeground(new java.awt.Color(255, 255, 255));
         btnSalvar.setText("Salvar ");
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,6 +98,8 @@ public class CadastroRestauranteView extends javax.swing.JFrame {
 
         pwSenha.setText("Senha");
 
+        btnSair.setBackground(new java.awt.Color(255, 153, 0));
+        btnSair.setForeground(new java.awt.Color(255, 255, 255));
         btnSair.setText("<");
         btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

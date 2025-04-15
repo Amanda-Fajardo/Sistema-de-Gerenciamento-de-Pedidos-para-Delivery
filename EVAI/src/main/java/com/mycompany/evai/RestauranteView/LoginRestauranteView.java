@@ -49,7 +49,10 @@ public class LoginRestauranteView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(119, 45, 139));
+
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("EVAI");
 
         txtUsuario.setText("Usuário");
@@ -59,6 +62,8 @@ public class LoginRestauranteView extends javax.swing.JFrame {
             }
         });
 
+        btnLogin.setBackground(new java.awt.Color(255, 153, 0));
+        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("Login");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

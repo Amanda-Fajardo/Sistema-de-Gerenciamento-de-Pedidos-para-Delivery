@@ -288,9 +288,13 @@ public class CarrinhoClienteView extends javax.swing.JPanel {
                 ItemPedido itemPedido = new ItemPedido();
                 itemPedido.setQuantidade(itemCarrinho.quantidade);
                 itemPedido.setValorUnitario(itemCarrinho.produto.getPreco());
+                itemPedido.setIdProduto(itemCarrinho.produto.getId());
+                itemPedido.setIdPedido(pedido.getId());
 
+                
+                
                 // Inserir o item no banco de dados
-                itemPedidoDAO.incluir(itemPedido, itemCarrinho.produto, pedido);
+                itemPedidoDAO.incluir(itemPedido);
             }
 
             // 4. Limpar carrinho e mostrar mensagem de sucesso

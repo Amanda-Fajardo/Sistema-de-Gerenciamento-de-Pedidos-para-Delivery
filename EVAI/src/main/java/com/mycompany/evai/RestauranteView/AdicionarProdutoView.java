@@ -49,7 +49,10 @@ public class AdicionarProdutoView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(119, 45, 139));
+
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("EVAI");
 
         txtNome.setText("Nome do prato");
@@ -66,6 +69,8 @@ public class AdicionarProdutoView extends javax.swing.JFrame {
             }
         });
 
+        btnSalvar.setBackground(new java.awt.Color(255, 153, 0));
+        btnSalvar.setForeground(new java.awt.Color(255, 255, 255));
         btnSalvar.setText("Salvar");
         btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,6 +78,8 @@ public class AdicionarProdutoView extends javax.swing.JFrame {
             }
         });
 
+        btnCancelar.setBackground(new java.awt.Color(255, 153, 0));
+        btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -174,12 +181,8 @@ public class AdicionarProdutoView extends javax.swing.JFrame {
         CardapioRestauranteView cardapioRestauranteView = new CardapioRestauranteView(restaurante);
         cardapioRestauranteView.atualizarCarrosselRestaurante();
 
-        CardapioClienteView cardapioClienteView = new CardapioClienteView(restaurante);
-        cardapioClienteView.atualizarCarrosselCliente();
-
         JOptionPane.showMessageDialog(this, "Produto adicionado com sucesso!");
         
-        new EditarCardapioView().setVisible(true);
         this.dispose();
         
     } catch (NumberFormatException ex) {

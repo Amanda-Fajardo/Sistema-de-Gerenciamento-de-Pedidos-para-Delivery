@@ -61,8 +61,6 @@ public class PedidosClienteView extends javax.swing.JFrame {
         jTable3 = new javax.swing.JTable();
         spACaminho = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
-        spCancelados = new javax.swing.JScrollPane();
-        jTable5 = new javax.swing.JTable();
         lbPedidos = new javax.swing.JLabel();
         jbAtualizar = new javax.swing.JButton();
 
@@ -118,21 +116,6 @@ public class PedidosClienteView extends javax.swing.JFrame {
         spACaminho.setViewportView(jTable4);
 
         jTabbedPane1.addTab("A Caminho", spACaminho);
-
-        jTable5.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        spCancelados.setViewportView(jTable5);
-
-        jTabbedPane1.addTab("Cancelado", spCancelados);
 
         lbPedidos.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         lbPedidos.setForeground(new java.awt.Color(255, 255, 255));
@@ -265,8 +248,6 @@ public class PedidosClienteView extends javax.swing.JFrame {
         preencherTabela(jTable4, pedidoDAO.consultarPorClienteERestauranteEStatus(
         idCliente, idRestaurante, "a caminho"), "A Caminho"); // Chamada adicionada
         
-        preencherTabela(jTable5, pedidoDAO.consultarPorClienteERestauranteEStatus(
-        idCliente, idRestaurante, "cancelado"), "Cancelado");
 
     }
 
@@ -317,11 +298,9 @@ public class PedidosClienteView extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
-    private javax.swing.JTable jTable5;
     private javax.swing.JButton jbAtualizar;
     private javax.swing.JLabel lbPedidos;
     private javax.swing.JScrollPane spACaminho;
-    private javax.swing.JScrollPane spCancelados;
     private javax.swing.JScrollPane spEmAndamento;
     private javax.swing.JScrollPane spPendentes;
     // End of variables declaration//GEN-END:variables

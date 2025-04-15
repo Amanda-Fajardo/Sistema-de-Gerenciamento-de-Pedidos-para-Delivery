@@ -29,126 +29,94 @@ public class CadastroUsuarioView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        lbMeusDados = new javax.swing.JLabel();
-        lbLogoEvai = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
         txtEndereco = new javax.swing.JTextField();
         txtTelefone = new javax.swing.JTextField();
-        btnSalvar = new javax.swing.JButton();
-        btnCancelar = new javax.swing.JButton();
         pwSenha = new javax.swing.JPasswordField();
-        jButton2 = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
+        btnSalvar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(119, 45, 139));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(119, 45, 139));
 
-        lbMeusDados.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        lbMeusDados.setForeground(new java.awt.Color(255, 255, 255));
-        lbMeusDados.setText("Meus Dados");
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Meus Dados");
 
-        txtNome.setText("Nome");
+        txtNome.setText("nome:");
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNomeActionPerformed(evt);
             }
         });
 
-        txtEndereco.setText("Endereço");
-        txtEndereco.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEnderecoActionPerformed(evt);
-            }
-        });
+        txtEndereco.setText("Endereço: ");
 
-        txtTelefone.setText("Telefone");
-        txtTelefone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTelefoneActionPerformed(evt);
-            }
-        });
+        txtTelefone.setText("Telefone:");
 
-        btnSalvar.setBackground(new java.awt.Color(255, 153, 0));
-        btnSalvar.setForeground(new java.awt.Color(255, 255, 255));
-        btnSalvar.setText("Salvar ");
-        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalvarActionPerformed(evt);
-            }
-        });
+        pwSenha.setText("jPasswordField1");
 
         btnCancelar.setBackground(new java.awt.Color(255, 153, 0));
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
-        btnCancelar.setText("Cancelar");
+        btnCancelar.setText("Login");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
             }
         });
 
-        pwSenha.setText("Senha");
-
-        jButton2.setText("<");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnSalvar.setBackground(new java.awt.Color(255, 153, 0));
+        btnSalvar.setForeground(new java.awt.Color(255, 255, 255));
+        btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnSalvarActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lbLogoEvai, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(190, 190, 190))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnSalvar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCancelar))
-                    .addComponent(txtTelefone, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
-                    .addComponent(txtEndereco, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
-                    .addComponent(txtNome, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
-                    .addComponent(pwSenha))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jButton2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtNome)
+                            .addComponent(txtEndereco)
+                            .addComponent(txtTelefone)
+                            .addComponent(pwSenha)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(btnSalvar)
+                                .addGap(92, 92, 92))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(btnCancelar)))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jButton2)
-                .addGap(48, 48, 48)
-                .addComponent(lbMeusDados)
-                .addGap(29, 29, 29)
-                .addComponent(lbLogoEvai, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(88, 88, 88)
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
                 .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(44, 44, 44)
                 .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(41, 41, 41)
+                .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addComponent(pwSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCancelar)
-                    .addComponent(btnSalvar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jBLogin)
-                .addGap(27, 27, 27))
+                .addGap(52, 52, 52)
+                .addComponent(btnSalvar)
+                .addGap(34, 34, 34)
+                .addComponent(btnCancelar)
+                .addGap(20, 20, 20))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -156,16 +124,16 @@ public class CadastroUsuarioView extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(217, 217, 217)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(296, Short.MAX_VALUE))
+                .addGap(227, 227, 227)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(568, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addGap(47, 47, 47)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(82, Short.MAX_VALUE))
         );
 
         pack();
@@ -175,51 +143,32 @@ public class CadastroUsuarioView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeActionPerformed
 
-    private void txtTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefoneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTelefoneActionPerformed
-
-    private void txtEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEnderecoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEnderecoActionPerformed
-
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-       // TODO add your handling code here:
+        // TODO add your handling code here:
         nome = txtNome.getText();
-        telefone = txtTelefone.getText();
         endereco = txtEndereco.getText();
+        telefone = txtTelefone.getText();
         senha = pwSenha.getText();
-
-    // Criando o objeto Cliente
-    Cliente novoCliente = new Cliente();
-    novoCliente.setNome(nome);
-    novoCliente.setTelefone(telefone);
-    novoCliente.setEndereco(endereco);
-    novoCliente.setSenha(senha);
-    
-    txtNome.setText("");
-    txtTelefone.setText("");
-    txtEndereco.setText("");
-    pwSenha.setText("");
-    
-    ClienteDAO clienteDao = new ClienteDAO();
-    clienteDao.incluir (novoCliente);
-    
-    dispose();
-    new TelaInicialCliente().setVisible(true);
+        
+        Cliente cliente = new Cliente();
+        cliente.setNome(nome);
+        cliente.setTelefone(telefone);
+        cliente.setEndereco(endereco);
+        cliente.setSenha(senha);
+        
+        ClienteDAO clienteDao = new ClienteDAO();
+        clienteDao.incluir(cliente);
+        
+        new LoginClienteView().setVisible(true);
+        dispose();
+        
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
         dispose();
-        new TelaInicialCliente().setVisible(true);
-    }//GEN-LAST:event_btnCancelarActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        dispose();
         new LoginClienteView().setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -259,10 +208,8 @@ public class CadastroUsuarioView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnSalvar;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lbLogoEvai;
-    private javax.swing.JLabel lbMeusDados;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField pwSenha;
     private javax.swing.JTextField txtEndereco;
     private javax.swing.JTextField txtNome;
