@@ -217,5 +217,44 @@ public class ClienteDAO {
         
         return null;
     } 
+    
+    public Cliente consultarPorNomeESenha(String nome, String senha) {
+    Connection con = Conexao.getConexao();
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
+    Cliente cliente = null;
+    
+    try {
+        // Consulta para buscar cliente pelo nome e senha
+        String query = "SELECT * FROM clientes WHERE nome = ? AND senha = ?";
+        
+        // Prepara a consulta
+        stmt = con.prepareStatement(query);
+        
+        // Define os parâmetros
+        stmt.setString(1, nome);
+        stmt.setString(2, senha);
+
+        rs = stmt.executeQuery();
+        
+        if (rs.next()) {
+            // Se encontrar o cliente, preenche os dados no objeto Cliente
+            cliente = new Cliente();
+            cliente.setId(rs.getInt("id_cliente"));
+            cliente.setNome(rs.getString("nome"));
+            cliente.setTelefone(rs.getString("telefone"));
+            cliente.setEndereco(rs.getString("endereco"));
+            cliente.setSenha(rs.getString("senha"));
+        }
+        
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } finally {
+        Conexao.fecharConexao(con, stmt, rs);
+    }
+    
+    return cliente;
+}
+
 
 }

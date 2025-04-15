@@ -11,6 +11,7 @@ import com.mycompany.evai.entidade.Produto;
 import com.mycompany.evai.entidade.Restaurante;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.util.List;
@@ -21,6 +22,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -87,7 +89,6 @@ public class CardapioRestauranteView extends javax.swing.JFrame {
         lbFoto3 = new javax.swing.JLabel();
         lbDescricao3 = new javax.swing.JLabel();
         lbPreco3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -238,13 +239,6 @@ public class CardapioRestauranteView extends javax.swing.JFrame {
 
         jPanel2.add(panelCarrossel);
 
-        jButton1.setText("Editar Cardápio");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         jButton2.setText("Pedidos");
         jButton2.setMaximumSize(new java.awt.Dimension(111, 23));
         jButton2.setMinimumSize(new java.awt.Dimension(111, 23));
@@ -272,10 +266,8 @@ public class CardapioRestauranteView extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLCardapio)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(82, 82, 82))))
+                        .addGap(290, 290, 290))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(402, 402, 402)
                 .addComponent(btnAnterior)
@@ -295,9 +287,8 @@ public class CardapioRestauranteView extends javax.swing.JFrame {
                     .addComponent(jBVoltar)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLCardapio)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addComponent(jLTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -335,14 +326,10 @@ public class CardapioRestauranteView extends javax.swing.JFrame {
          new SessaoView().setVisible(true);
     }//GEN-LAST:event_jBVoltarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        dispose();
-        new EditarCardapioView().setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        PedidosRestauranteView p = new PedidosRestauranteView(restaurante.getId());
+        p.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -389,7 +376,6 @@ public class CardapioRestauranteView extends javax.swing.JFrame {
     private javax.swing.JButton btnProximo;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jBVoltar;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLCardapio;
     private javax.swing.JLabel jLEndereco;
@@ -461,8 +447,54 @@ public class CardapioRestauranteView extends javax.swing.JFrame {
         lblDesc.setAlignmentX(Component.CENTER_ALIGNMENT);
         lblPreco.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        JButton btnCarrinho = new JButton("Adicionar ao carrinho");
-        btnCarrinho.setAlignmentX(Component.CENTER_ALIGNMENT);
+        JButton btnExcluir = new JButton("Excluir Produto");
+        btnExcluir.setAlignmentX(Component.CENTER_ALIGNMENT);
+        
+        JButton btnEditar = new JButton("Editar Produto");
+        btnEditar.setAlignmentX(Component.CENTER_ALIGNMENT);
+        
+        btnExcluir.addActionListener(e -> {
+            try {
+            int opcao = JOptionPane.showConfirmDialog(card, 
+                "Tem certeza que deseja excluir o produto \"" + produto.getNome() + "\"?",
+                "Confirmar Exclusão", JOptionPane.YES_NO_OPTION);
+
+            if (opcao == JOptionPane.YES_OPTION) {
+                ProdutoDAO dao = new ProdutoDAO();
+                dao.excluir(produto);
+
+                Container parent = card.getParent();
+                if (parent != null) {
+                    parent.remove(card);
+                    parent.revalidate();
+                    parent.repaint();
+                }
+            }
+            }catch(RuntimeException err) {
+                System.out.println(err.getMessage());
+            }
+        });
+        
+        btnEditar.addActionListener(e -> {
+            try {
+                
+                EditarProdutoView editarProdutoView = new EditarProdutoView(produto);
+                editarProdutoView.setVisible(true);  // Exibe a tela de edição
+
+                // Fecha o card atual
+                Container parent = card.getParent();
+                if (parent != null) {
+                    parent.remove(card);
+                    parent.revalidate();
+                    parent.repaint();
+                }
+
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+                JOptionPane.showMessageDialog(null, "Erro ao abrir a tela de edição: " + ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+        });
+
 
         card.add(lblImagem);
         card.add(Box.createVerticalStrut(15));
@@ -472,7 +504,9 @@ public class CardapioRestauranteView extends javax.swing.JFrame {
         card.add(Box.createVerticalStrut(15));
         card.add(lblPreco);
         card.add(Box.createVerticalStrut(15));
-        card.add(btnCarrinho);
+        card.add(btnExcluir);
+        card.add(btnEditar);
+
 
         return card;
     }

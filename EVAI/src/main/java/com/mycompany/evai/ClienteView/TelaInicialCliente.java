@@ -9,21 +9,12 @@ import com.mycompany.evai.ClienteView.LoginClienteView;
 import com.mycompany.evai.DAO.RestauranteDAO;
 import com.mycompany.evai.entidade.Cliente;
 import com.mycompany.evai.entidade.Restaurante;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Cursor;
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.util.List;
-import javax.swing.BorderFactory;
-import javax.swing.Box;
 import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.SwingConstants;
 
 /**
  *
@@ -31,14 +22,13 @@ import javax.swing.SwingConstants;
  */
 public class TelaInicialCliente extends javax.swing.JFrame {
     
-    private Cliente cliente;
-
+    Cliente cliente;
     /**
      * Creates new form TelaInicialCliente
      */
     public TelaInicialCliente(Cliente cliente) {
-        this.cliente = cliente;
         
+        this.cliente = cliente;
         initComponents();
         
         carregarRestaurantes();
@@ -57,12 +47,9 @@ public class TelaInicialCliente extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanelGrid = new javax.swing.JPanel();
         btnAtualizar = new javax.swing.JButton();
-        btnLogin = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setAlwaysOnTop(true);
-        setBackground(new java.awt.Color(204, 0, 204));
 
         jPanel1.setBackground(new java.awt.Color(119, 45, 139));
 
@@ -71,21 +58,15 @@ public class TelaInicialCliente extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("EVAI");
 
-        jPanelGrid.setBackground(new java.awt.Color(255, 255, 255));
         jPanelGrid.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanelGrid.setLayout(new java.awt.GridLayout(2, 4));
 
+        btnAtualizar.setBackground(new java.awt.Color(255, 153, 0));
+        btnAtualizar.setForeground(new java.awt.Color(255, 255, 255));
         btnAtualizar.setText("Atualizar");
         btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAtualizarActionPerformed(evt);
-            }
-        });
-
-        btnLogin.setText("Fazer login");
-        btnLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLoginActionPerformed(evt);
             }
         });
 
@@ -96,43 +77,61 @@ public class TelaInicialCliente extends javax.swing.JFrame {
             }
         });
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 903, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(btnSair)
+                            .addGap(786, 786, 786))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addGap(68, 68, 68)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jPanelGrid, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 741, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(btnAtualizar)
+                                    .addGap(318, 318, 318))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel1)
+                                    .addGap(313, 313, 313)))))
+                    .addContainerGap(88, Short.MAX_VALUE)))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 563, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(btnSair)
+                    .addGap(18, 18, 18)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                    .addComponent(jPanelGrid, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(btnAtualizar)
+                    .addContainerGap()))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(82, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(393, 393, 393))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanelGrid, javax.swing.GroupLayout.PREFERRED_SIZE, 741, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(80, 80, 80))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnAtualizar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnLogin)
-                        .addGap(346, 346, 346))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(btnSair)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(btnSair)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
-                .addComponent(jPanelGrid, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAtualizar)
-                    .addComponent(btnLogin))
-                .addGap(32, 32, 32))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(28, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -143,18 +142,10 @@ public class TelaInicialCliente extends javax.swing.JFrame {
         carregarRestaurantes();
     }//GEN-LAST:event_btnAtualizarActionPerformed
 
-    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        // TODO add your handling code here:
-        LoginClienteView login = new LoginClienteView();
-        login.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btnLoginActionPerformed
-
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         // TODO add your handling code here:
-        SessaoView telaInicial = new SessaoView();
-        telaInicial.setVisible(true);
-        this.dispose();
+        dispose();
+        new SessaoView().setVisible(true);     
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void carregarRestaurantes() {
@@ -162,25 +153,40 @@ public class TelaInicialCliente extends javax.swing.JFrame {
         List<Restaurante> lista = dao.consulta();
 
         jPanelGrid.removeAll();
-        jPanelGrid.setLayout(new GridLayout(0, 3, 20, 20)); // 0 linhas (auto), 3 colunas, 20px de espaçamento
+    jPanelGrid.setLayout(new GridLayout(0, 3, 10, 10)); // 3 colunas com espaçamento
 
-        for (Restaurante r : lista) {
-            JPanel card = new JPanel();
-            card.setLayout(new BoxLayout(card, BoxLayout.Y_AXIS));
-            card.add(new JLabel(r.getNome()));
-            card.add(new JLabel(r.getTelefone()));
-            card.add(new JLabel(r.getEndereco()));
-            jPanelGrid.add(card);
-            
-        }
+    for (Restaurante r : lista) {
+        JPanel card = new JPanel();
+        card.setLayout(new BoxLayout(card, BoxLayout.Y_AXIS));
+        card.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 200, 200)));
+        card.setBackground(new java.awt.Color(255, 255, 255));
 
-        // Configuração do container principal
-        jPanelGrid.setBackground(new Color(240, 240, 240));
-        jPanelGrid.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        JLabel nomeLabel = new JLabel(r.getNome());
+        nomeLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // Negrito
+        
+        JLabel telefoneLabel = new JLabel("Tel: " + r.getTelefone());
+        telefoneLabel.setFont(new java.awt.Font("Segoe UI", 0, 12)); // Normal
+        
+        JLabel enderecoLabel = new JLabel(r.getEndereco());
+        enderecoLabel.setFont(new java.awt.Font("Segoe UI", 0, 11)); // Normal
 
-        jPanelGrid.revalidate();
-        jPanelGrid.repaint();
+        card.add(nomeLabel);
+        card.add(telefoneLabel);
+        card.add(enderecoLabel);
+        
+        card.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dispose();
+                new CardapioClienteView(r, cliente).setVisible(true);
+            }
+        });
+        
+        jPanelGrid.add(card);
     }
+
+    jPanelGrid.revalidate();
+    jPanelGrid.repaint();
+}
     /**
      * @param args the command line arguments
      */
@@ -207,18 +213,20 @@ public class TelaInicialCliente extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(TelaInicialCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaInicialCliente(cliente).setVisible(true);
+                new TelaInicialCliente().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtualizar;
-    private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnSair;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

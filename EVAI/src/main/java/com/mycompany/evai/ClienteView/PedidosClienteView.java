@@ -61,6 +61,8 @@ public class PedidosClienteView extends javax.swing.JFrame {
         jTable3 = new javax.swing.JTable();
         spACaminho = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
+        spCancelados = new javax.swing.JScrollPane();
+        jTable5 = new javax.swing.JTable();
         lbPedidos = new javax.swing.JLabel();
         jbAtualizar = new javax.swing.JButton();
 
@@ -117,6 +119,21 @@ public class PedidosClienteView extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("A Caminho", spACaminho);
 
+        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        spCancelados.setViewportView(jTable5);
+
+        jTabbedPane1.addTab("Cancelado", spCancelados);
+
         lbPedidos.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         lbPedidos.setForeground(new java.awt.Color(255, 255, 255));
         lbPedidos.setText("Pedidos");
@@ -134,7 +151,7 @@ public class PedidosClienteView extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 903, Short.MAX_VALUE)
+            .addGap(0, 915, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
@@ -145,18 +162,18 @@ public class PedidosClienteView extends javax.swing.JFrame {
                             .addGap(630, 630, 630)
                             .addComponent(jbAtualizar))
                         .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 891, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addContainerGap(18, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 609, Short.MAX_VALUE)
+            .addGap(0, 680, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lbPedidos)
                         .addComponent(jbAtualizar))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
                     .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap()))
         );
@@ -165,17 +182,17 @@ public class PedidosClienteView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(100, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(139, 139, 139))
+                .addContainerGap(221, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         pack();
@@ -247,6 +264,10 @@ public class PedidosClienteView extends javax.swing.JFrame {
 
         preencherTabela(jTable4, pedidoDAO.consultarPorClienteERestauranteEStatus(
         idCliente, idRestaurante, "a caminho"), "A Caminho"); // Chamada adicionada
+        
+        preencherTabela(jTable5, pedidoDAO.consultarPorClienteERestauranteEStatus(
+        idCliente, idRestaurante, "cancelado"), "Cancelado");
+
     }
 
     
@@ -296,9 +317,11 @@ public class PedidosClienteView extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
+    private javax.swing.JTable jTable5;
     private javax.swing.JButton jbAtualizar;
     private javax.swing.JLabel lbPedidos;
     private javax.swing.JScrollPane spACaminho;
+    private javax.swing.JScrollPane spCancelados;
     private javax.swing.JScrollPane spEmAndamento;
     private javax.swing.JScrollPane spPendentes;
     // End of variables declaration//GEN-END:variables

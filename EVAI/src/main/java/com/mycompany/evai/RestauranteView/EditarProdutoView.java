@@ -184,9 +184,6 @@ public class EditarProdutoView extends javax.swing.JFrame {
         CardapioRestauranteView cardapioRestauranteView = new CardapioRestauranteView(restaurante);
         cardapioRestauranteView.atualizarCarrosselRestaurante();
 
-        CardapioClienteView cardapioClienteView = new CardapioClienteView(restaurante);
-        cardapioClienteView.atualizarCarrosselCliente();
-
         JOptionPane.showMessageDialog(this, "Produto atualizado com sucesso!");
         this.dispose();
     } catch (NumberFormatException ex) {

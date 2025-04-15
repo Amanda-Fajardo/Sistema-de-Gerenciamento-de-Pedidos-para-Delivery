@@ -18,6 +18,16 @@ public class LoginRestauranteView extends javax.swing.JFrame {
     /**
      * Creates new form LoginClienteView
      */
+    private static int idRestauranteLogado;
+
+    public static void setIdRestauranteLogado(int id) {
+        idRestauranteLogado = id;
+    }
+
+    public static int getIdRestauranteLogado() {
+        return idRestauranteLogado;
+    }
+
     public LoginRestauranteView() {
         initComponents();
     }
@@ -122,7 +132,7 @@ public class LoginRestauranteView extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Login realizado com sucesso!");
             
             this.dispose();
-            new CardapioRestauranteView().setVisible(true);
+            new CardapioRestauranteView(restaurante).setVisible(true);
             
         
         } else {

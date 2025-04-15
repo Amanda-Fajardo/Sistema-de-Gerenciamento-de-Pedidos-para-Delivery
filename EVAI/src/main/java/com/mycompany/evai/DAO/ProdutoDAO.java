@@ -61,8 +61,8 @@ public class ProdutoDAO {
             stmt = con.prepareStatement("UPDATE produtos SET nome = ?, descricao = ?, preco = ? where id_produto = ? ");
           
             stmt.setString(1, produto.getNome()); // Nome do produto
-            stmt.setString(3, produto.getDescricao()); // descrição do produto
-            stmt.setFloat(2, produto.getPreco()); // preço na tabela produto
+            stmt.setString(2, produto.getDescricao()); // descrição do produto
+            stmt.setFloat(3, produto.getPreco()); // preço na tabela produto
             stmt.setInt(4, produto.getId());
             
             
@@ -101,7 +101,7 @@ public class ProdutoDAO {
         } catch (SQLException ex) {
             ex.printStackTrace();
 
-             throw new RuntimeException("Erro ao inserir informação no banco de dados");
+             throw new RuntimeException("Erro ao excluir informações no banco de dados");
         } finally {
             Conexao.fecharConexao(con, stmt);
 
