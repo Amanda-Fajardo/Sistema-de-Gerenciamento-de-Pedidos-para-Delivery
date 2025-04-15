@@ -42,7 +42,6 @@ public class TelaInicialCliente2 extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanelGrid = new javax.swing.JPanel();
         btnAtualizar = new javax.swing.JButton();
-        btnLogout = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -61,13 +60,6 @@ public class TelaInicialCliente2 extends javax.swing.JFrame {
             }
         });
 
-        btnLogout.setText("Encerrar Sessão");
-        btnLogout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogoutActionPerformed(evt);
-            }
-        });
-
         btnSair.setText("<");
         btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,6 +72,10 @@ public class TelaInicialCliente2 extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(btnSair)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(82, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -90,13 +86,7 @@ public class TelaInicialCliente2 extends javax.swing.JFrame {
                         .addGap(80, 80, 80))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnAtualizar)
-                        .addGap(29, 29, 29)
-                        .addComponent(btnLogout)
-                        .addGap(316, 316, 316))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(btnSair)
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(398, 398, 398))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,9 +98,7 @@ public class TelaInicialCliente2 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addComponent(jPanelGrid, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAtualizar)
-                    .addComponent(btnLogout))
+                .addComponent(btnAtualizar)
                 .addGap(32, 32, 32))
         );
 
@@ -122,18 +110,10 @@ public class TelaInicialCliente2 extends javax.swing.JFrame {
         carregarRestaurantes();
     }//GEN-LAST:event_btnAtualizarActionPerformed
 
-    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
-        // TODO add your handling code here:
-        LoginClienteView login = new LoginClienteView();
-        login.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btnLogoutActionPerformed
-
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         // TODO add your handling code here:
-        SessaoView telaInicial = new SessaoView();
-        telaInicial.setVisible(true);
-        this.dispose();
+        dispose();
+        new SessaoView().setVisible(true);     
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void carregarRestaurantes() {
@@ -203,7 +183,6 @@ public class TelaInicialCliente2 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtualizar;
-    private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnSair;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanelGrid;

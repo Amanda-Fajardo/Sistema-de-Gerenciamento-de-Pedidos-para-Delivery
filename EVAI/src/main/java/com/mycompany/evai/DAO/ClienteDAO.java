@@ -199,7 +199,7 @@ public class ClienteDAO {
             cliente.setId(rs.getInt("id_cliente"));
             cliente.setNome(rs.getString("nome"));
             cliente.setTelefone(rs.getString("telefone"));
-            cliente.setEndereco(rs.getString("endereço"));
+            cliente.setEndereco(rs.getString("endereco"));
             cliente.setSenha(rs.getString("senha"));
             
             return cliente;

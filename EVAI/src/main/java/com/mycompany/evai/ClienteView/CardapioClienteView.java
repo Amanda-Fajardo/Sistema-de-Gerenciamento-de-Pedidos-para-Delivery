@@ -4,6 +4,7 @@
  */
 package com.mycompany.evai.ClienteView;
 
+
 import com.mycompany.evai.DAO.ProdutoDAO;
 import com.mycompany.evai.entidade.Produto;
 import com.mycompany.evai.entidade.Restaurante;
@@ -352,7 +353,7 @@ public class CardapioClienteView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCarrinhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarrinhoActionPerformed
-        // TODO add your handling code here:     
+        // TODO add your handling code here:    
         CarrinhoClienteView painel = new CarrinhoClienteView();
     
         JFrame frame = new JFrame("Carrinho de Compras");
@@ -365,6 +366,7 @@ public class CardapioClienteView extends javax.swing.JFrame {
 
     private void btnMeusPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMeusPedidosActionPerformed
         // TODO add your handling code here:
+        new PedidosClienteView().setVisible(true);
     }//GEN-LAST:event_btnMeusPedidosActionPerformed
 
     private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
@@ -399,7 +401,7 @@ public class CardapioClienteView extends javax.swing.JFrame {
     private void jBVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVoltarActionPerformed
         // TODO add your handling code here:
          dispose();
-         new TelaInicialCliente().setVisible(true);
+         new TelaInicialCliente2().setVisible(true);
     }//GEN-LAST:event_jBVoltarActionPerformed
 
     /**

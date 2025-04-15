@@ -199,7 +199,7 @@ public class CadastroUsuarioView extends javax.swing.JFrame {
     clienteDao.incluir (novoCliente);
     
     dispose();
-    new TelaInicialCliente2().setVisible(true);
+    new TelaInicialCliente().setVisible(true);
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed

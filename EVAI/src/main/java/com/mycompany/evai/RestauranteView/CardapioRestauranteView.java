@@ -6,6 +6,7 @@ package com.mycompany.evai.RestauranteView;
 
 import com.mycompany.evai.ClienteView.*;
 import com.mycompany.evai.DAO.ProdutoDAO;
+import com.mycompany.evai.Sessao.*;
 import com.mycompany.evai.entidade.Produto;
 import com.mycompany.evai.entidade.Restaurante;
 import java.awt.Color;
@@ -331,14 +332,13 @@ public class CardapioRestauranteView extends javax.swing.JFrame {
     private void jBVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVoltarActionPerformed
         // TODO add your handling code here:
          dispose();
-         new TelaInicialCliente().setVisible(true);
+         new SessaoView().setVisible(true);
     }//GEN-LAST:event_jBVoltarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        dispose();
         new EditarCardapioView().setVisible(true);
-
-        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

@@ -153,12 +153,6 @@ public class TelaInicialCliente extends javax.swing.JFrame {
             card.add(new JLabel(r.getEndereco()));
             jPanelGrid.add(card);
             
-             card.addMouseListener(new java.awt.event.MouseAdapter() {
-                public void mouseClicked(java.awt.event.MouseEvent evt) {
-                dispose();
-                new TelaInicialCliente2().setVisible(true);
-            }
-    });
         }
 
         // Atualiza o painel

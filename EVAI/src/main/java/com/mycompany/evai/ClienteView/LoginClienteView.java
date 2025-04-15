@@ -157,7 +157,7 @@ public class LoginClienteView extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Login realizado com sucesso!");
             
             this.dispose();
-            new CardapioClienteView().setVisible(true);
+            new TelaInicialCliente2().setVisible(true);
             
         
         } else {
