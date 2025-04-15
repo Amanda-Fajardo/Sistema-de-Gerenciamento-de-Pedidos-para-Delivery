@@ -54,105 +54,76 @@ public class ItemPedidoDAO {
     }
 
     public void alterar(ItemPedido itemPedido, Pedido pedido, Produto produto) {
-        
         Connection con = Conexao.getConexao();
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("UPDATE itemPedidos SET id_pedido = ?, id_produto = ?, quantidade = ?, preco_unitario = ? where id_itemPedido = ? ");
+            // Corrigido nome da tabela e ordem dos parâmetros
+            stmt = con.prepareStatement("UPDATE itens_pedido SET id_pedido = ?, id_produto = ?, quantidade = ?, preco_unitario = ? WHERE id_item = ?");
           
             stmt.setInt(1, pedido.getId()); 
             stmt.setInt(2, produto.getId()); 
             stmt.setInt(3, itemPedido.getQuantidade()); 
             stmt.setFloat(4, itemPedido.getValorUnitario());
-            stmt.setInt(4, itemPedido.getId());
-            
+            stmt.setInt(5, itemPedido.getId()); // Corrigido índice para 5
             
             stmt.executeUpdate();
             
             System.out.println("itemPedido: " + itemPedido.getId() + " alterado com sucesso");
 
-
         } catch (SQLException ex) {
             ex.printStackTrace();
-
-            throw new RuntimeException("Erro ao inserir informação no banco de dados");
-
+            throw new RuntimeException("Erro ao alterar informação no banco de dados");
         } finally {
             Conexao.fecharConexao(con, stmt);
-
         }
     }
 
     public void excluir(ItemPedido itemPedido) {
-        
         Connection con = Conexao.getConexao();
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("DELETE from itemPedidos WHERE id_itemPedido = ?");
-           
+            // Corrigido nome da tabela
+            stmt = con.prepareStatement("DELETE FROM itens_pedido WHERE id_item = ?");
             stmt.setInt(1, itemPedido.getId());
-            
-            
             stmt.executeUpdate();
             
             System.out.println("itemPedido: " + itemPedido.getId() + " excluído com sucesso");
 
-
         } catch (SQLException ex) {
             ex.printStackTrace();
-
-             throw new RuntimeException("Erro ao inserir informação no banco de dados");
+            throw new RuntimeException("Erro ao excluir informação no banco de dados");
         } finally {
             Conexao.fecharConexao(con, stmt);
-
         }
-
     }
 
-     public List<ItemPedido> consulta(){
+    public List<ItemPedido> consulta() {
+        Connection con = Conexao.getConexao();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        List<ItemPedido> itemPedidos = new ArrayList<>();
 
-       Connection con = Conexao.getConexao();
-       PreparedStatement stmt = null;
-       
-       ResultSet rs = null;
-       
-       
-       List<ItemPedido> itemPedidos = new ArrayList<ItemPedido>();
-       
-       
-       try{
+        try {
+            // Corrigido nome da tabela e colunas
+            stmt = con.prepareStatement("SELECT id_item, id_pedido, id_produto, quantidade, preco_unitario FROM itens_pedido");
+            rs = stmt.executeQuery();
            
-           stmt = con.prepareStatement("select id_itemPedido, id_pedido, is_produto, quantidade, preco_unitario from itemPedidos");
-           rs = stmt.executeQuery();
-           
-           while (rs.next()){
-               ItemPedido itemPedido =  new ItemPedido();
-              
-               itemPedido.setId(rs.getInt("id_itemPedido"));
-               itemPedido.setIdPedido(rs.getInt("id_pedido"));
-               itemPedido.setIdProduto(rs.getInt("id_produto"));
-               itemPedido.setQuantidade(rs.getInt("quantidade"));
-               itemPedido.setValorUnitario(rs.getFloat("preco_unitario"));
-              
-               
-               itemPedidos.add(itemPedido);
-               
-           }
-           
-           
-       }catch (SQLException s){
-           s.printStackTrace();
-           
-       }
-       
-        finally {
+            while (rs.next()) {
+                ItemPedido itemPedido = new ItemPedido();
+                itemPedido.setId(rs.getInt("id_item"));
+                itemPedido.setIdPedido(rs.getInt("id_pedido"));
+                itemPedido.setIdProduto(rs.getInt("id_produto"));
+                itemPedido.setQuantidade(rs.getInt("quantidade"));
+                itemPedido.setValorUnitario(rs.getFloat("preco_unitario"));
+                itemPedidos.add(itemPedido);
+            }
+        } catch (SQLException s) {
+            s.printStackTrace();
+        } finally {
             Conexao.fecharConexao(con, stmt);
-
         }
-       
-      return itemPedidos;
-       
-   }
+        return itemPedidos;
+    }
 }
