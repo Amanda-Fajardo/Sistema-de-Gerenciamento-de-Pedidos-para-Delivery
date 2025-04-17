@@ -20,6 +20,8 @@ import javax.swing.text.NumberFormatter;
 /**
  *
  * @author amand
+ * 
+ * Classe usada para que o restaurante adicione novos produtos ao seu cardápio
  */
 public class AdicionarProdutoView extends javax.swing.JFrame {
     /**

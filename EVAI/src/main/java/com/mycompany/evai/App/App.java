@@ -13,6 +13,8 @@ import com.mycompany.evai.entidade.Restaurante;
 /**
  *
  * @author victor
+ * 
+ * Classe utilizada para testes iniciais
  */
 public class App {
     public static void main(String args[]) {

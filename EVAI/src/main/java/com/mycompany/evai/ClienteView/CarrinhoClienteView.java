@@ -31,6 +31,8 @@ import javax.swing.SwingConstants;
 /**
  *
  * @author erick
+ * 
+ * Classe usada para mostrar os itens que o cliente colocou no carrinho e pretende pedir ao restaurante
  */
 public class CarrinhoClienteView extends javax.swing.JPanel {
     

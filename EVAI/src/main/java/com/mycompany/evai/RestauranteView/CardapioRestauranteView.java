@@ -28,6 +28,8 @@ import javax.swing.JPanel;
 /**
  *
  * @author amand
+ * 
+ * Classe usada para exibir ao restaurante o cardápio contendo os produtos que eles já possuem
  */
 public class CardapioRestauranteView extends javax.swing.JFrame {
     

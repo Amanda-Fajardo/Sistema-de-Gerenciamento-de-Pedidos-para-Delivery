@@ -26,6 +26,8 @@ import javax.swing.JPanel;
 /**
  *
  * @author amand
+ * 
+ * Classe usada para exibir o cardápio do restaurante que o cliente escolheu
  */
 public class CardapioClienteView extends javax.swing.JFrame {
     

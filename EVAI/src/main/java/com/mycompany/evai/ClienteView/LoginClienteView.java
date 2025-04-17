@@ -12,7 +12,9 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author amand
+ * @author amand 
+ * 
+ * Classe usada para que o cliente faça seu login caso já seja cadastrado
  */
 public class LoginClienteView extends javax.swing.JFrame {
     String nome, senha;

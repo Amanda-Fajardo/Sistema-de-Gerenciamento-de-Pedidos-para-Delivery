@@ -9,6 +9,8 @@ import com.mycompany.evai.RestauranteView.*;
 /**
  *
  * @author amand
+ * 
+ * Classe que mostra a primeira tela a aparecer quando o sistema é executado, permite que o usuário escolha entre logar como cliente ou como um restaurante parceiro
  */
 public class SessaoView extends javax.swing.JFrame {
 

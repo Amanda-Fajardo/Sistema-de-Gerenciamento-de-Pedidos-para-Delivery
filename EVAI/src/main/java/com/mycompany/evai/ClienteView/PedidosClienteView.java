@@ -18,6 +18,8 @@ import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author amand
+ * 
+ * Classe usada para mostrar ao cliente os pedidos que ele já fez e acompanhar o seu andamento
  */
 public class PedidosClienteView extends javax.swing.JFrame {
 

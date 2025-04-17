@@ -9,6 +9,8 @@ import com.mycompany.evai.entidade.Cliente;
 /**
  *
  * @author amand
+ * 
+ * Classe usada para o cadastro dos clientes
  */
 public class CadastroUsuarioView extends javax.swing.JFrame {
     String nome, endereco, telefone, senha;

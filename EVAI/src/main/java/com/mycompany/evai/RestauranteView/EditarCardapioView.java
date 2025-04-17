@@ -26,6 +26,8 @@ import javax.swing.JPanel;
 /**
  *
  * @author amand
+ * 
+ * Classe usada para o restaurante editar o seu cardápio adicionando novos produtos ou editando/excluindo os já existentes
  */
 public class EditarCardapioView extends javax.swing.JFrame {
     

@@ -19,6 +19,8 @@ import javax.swing.JScrollPane;
 /**
  *
  * @author va001
+ * 
+ * Classe para mostrar a primeira tela que aparece depois que o clinete faz o seu login ou cadastro
  */
 public class TelaInicialCliente extends javax.swing.JFrame {
     

@@ -1,0 +1,57 @@
+-J-Duser.language=
+-J-Duser.country=
+-Xdoclint:none
+@options
+@packages
+-classpath
+'C:/Users/amand/.m2/repository/com/mysql/mysql-connector-j/8.0.33/mysql-connector-j-8.0.33.jar;C:/Users/amand/.m2/repository/com/google/protobuf/protobuf-java/3.21.9/protobuf-java-3.21.9.jar'
+-encoding
+'UTF-8'
+-public
+-source
+'22'
+-sourcepath
+'D:/PROGRAMAS/EmbarcaTech/Git/Sistema-de-Gerenciamento-de-Pedidos-para-Delivery/EVAI/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2025. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'D:/PROGRAMAS/EmbarcaTech/Git/Sistema-de-Gerenciamento-de-Pedidos-para-Delivery/EVAI/target/reports/apidocs'
+-docencoding
+'UTF-8'
+-Xdoclint:none
+-doctitle
+'EVAI 1.0-SNAPSHOT API'
+-nohelp
+-use
+-version
+-windowtitle
+'EVAI 1.0-SNAPSHOT API'
+com.mycompany.evai.App
+com.mycompany.evai.ClienteView
+com.mycompany.evai.conexao
+com.mycompany.evai.DAO
+com.mycompany.evai.entidade
+com.mycompany.evai
+com.mycompany.evai.RestauranteView
+com.mycompany.evai.Sessao
+C:\Users\amand\.m2\repository\com\mysql\mysql-connector-j\8.0.33\mysql-connector-j-8.0.33.jar = 1742750081617
+C:\Users\amand\.m2\repository\com\google\protobuf\protobuf-java\3.21.9\protobuf-java-3.21.9.jar = 1742750081749
+D:\PROGRAMAS\EmbarcaTech\Git\Sistema-de-Gerenciamento-de-Pedidos-para-Delivery\EVAI\src\main\java = 1744726487753
+D:\PROGRAMAS\EmbarcaTech\Git\Sistema-de-Gerenciamento-de-Pedidos-para-Delivery\EVAI\target\reports\apidocs\allclasses-index.html = 1744907172530
+D:\PROGRAMAS\EmbarcaTech\Git\Sistema-de-Gerenciamento-de-Pedidos-para-Delivery\EVAI\target\reports\apidocs\allpackages-index.html = 1744907172534
+D:\PROGRAMAS\EmbarcaTech\Git\Sistema-de-Gerenciamento-de-Pedidos-para-Delivery\EVAI\target\reports\apidocs\element-list = 1744907172119
+D:\PROGRAMAS\EmbarcaTech\Git\Sistema-de-Gerenciamento-de-Pedidos-para-Delivery\EVAI\target\reports\apidocs\help-doc.html = 1744906791195
+D:\PROGRAMAS\EmbarcaTech\Git\Sistema-de-Gerenciamento-de-Pedidos-para-Delivery\EVAI\target\reports\apidocs\index-all.html = 1744907172586
+D:\PROGRAMAS\EmbarcaTech\Git\Sistema-de-Gerenciamento-de-Pedidos-para-Delivery\EVAI\target\reports\apidocs\index.html = 1744907172499
+D:\PROGRAMAS\EmbarcaTech\Git\Sistema-de-Gerenciamento-de-Pedidos-para-Delivery\EVAI\target\reports\apidocs\member-search-index.js = 1744907172557
+D:\PROGRAMAS\EmbarcaTech\Git\Sistema-de-Gerenciamento-de-Pedidos-para-Delivery\EVAI\target\reports\apidocs\module-search-index.js = 1744907172544
+D:\PROGRAMAS\EmbarcaTech\Git\Sistema-de-Gerenciamento-de-Pedidos-para-Delivery\EVAI\target\reports\apidocs\overview-summary.html = 1744907172591
+D:\PROGRAMAS\EmbarcaTech\Git\Sistema-de-Gerenciamento-de-Pedidos-para-Delivery\EVAI\target\reports\apidocs\overview-tree.html = 1744907172493
+D:\PROGRAMAS\EmbarcaTech\Git\Sistema-de-Gerenciamento-de-Pedidos-para-Delivery\EVAI\target\reports\apidocs\package-search-index.js = 1744907172550
+D:\PROGRAMAS\EmbarcaTech\Git\Sistema-de-Gerenciamento-de-Pedidos-para-Delivery\EVAI\target\reports\apidocs\search.html = 1744907172588
+D:\PROGRAMAS\EmbarcaTech\Git\Sistema-de-Gerenciamento-de-Pedidos-para-Delivery\EVAI\target\reports\apidocs\serialized-form.html = 1744907172288
+D:\PROGRAMAS\EmbarcaTech\Git\Sistema-de-Gerenciamento-de-Pedidos-para-Delivery\EVAI\target\reports\apidocs\tag-search-index.js = 1744907172560
+D:\PROGRAMAS\EmbarcaTech\Git\Sistema-de-Gerenciamento-de-Pedidos-para-Delivery\EVAI\target\reports\apidocs\type-search-index.js = 1744907172552

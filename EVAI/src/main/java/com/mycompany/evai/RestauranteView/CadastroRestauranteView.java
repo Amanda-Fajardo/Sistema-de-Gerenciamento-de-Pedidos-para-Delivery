@@ -11,6 +11,8 @@ import com.mycompany.evai.Sessao.*;
 /**
  *
  * @author amand
+ * 
+ * Classe usada para que novos restaurates se cadastrem na plataforma
  */
 public class CadastroRestauranteView extends javax.swing.JFrame {
     String nome, endereco, telefone, senha;

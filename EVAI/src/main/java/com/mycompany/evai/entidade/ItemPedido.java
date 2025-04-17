@@ -29,16 +29,24 @@ public class ItemPedido {
     }
 
     /**
-     * @param produto the produto to set
+     * @param idProduto the produto to set
      */
     public void setIdProduto(int idProduto) {
         this.idProduto = idProduto;
     }
-
+    
+    /**
+     * 
+     * @return  the idPedido
+     */
     public int getIdPedido() {
         return idPedido;
     }
-
+    
+    /**
+     * 
+     * @param idPedido the pedido to set 
+     */
     public void setIdPedido(int idPedido) {
         this.idPedido = idPedido;
     }

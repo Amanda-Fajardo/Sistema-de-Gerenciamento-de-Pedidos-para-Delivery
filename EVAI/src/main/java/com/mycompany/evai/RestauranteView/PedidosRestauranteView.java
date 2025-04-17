@@ -26,6 +26,13 @@ import com.mycompany.evai.entidade.ItemPedido;
 import com.mycompany.evai.entidade.Pedido;
 import com.mycompany.evai.entidade.Produto;
 
+/**
+ *
+ * @author erick
+ * 
+ * Classe para que o restaurante visualize os pedidos que os clientes fizeram
+ */
+
 public class PedidosRestauranteView extends javax.swing.JFrame {
     private final int idRestaurante;
     private final PedidoDAO pedidoDAO;

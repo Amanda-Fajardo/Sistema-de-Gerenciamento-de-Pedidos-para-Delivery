@@ -19,6 +19,8 @@ import javax.swing.text.NumberFormatter;
 /**
  *
  * @author amand
+ * 
+ * Classe usada para que restaurante edite um produto já existente no seu cardápio
  */
 public class EditarProdutoView extends javax.swing.JFrame {
     private Produto produtoAtual;

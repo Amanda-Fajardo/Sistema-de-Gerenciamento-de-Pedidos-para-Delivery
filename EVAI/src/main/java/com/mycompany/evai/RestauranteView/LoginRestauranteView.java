@@ -13,6 +13,8 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author amand
+ * 
+ * Classe para que o restaurante que já foi cadastrado faça o seu login
  */
 public class LoginRestauranteView extends javax.swing.JFrame {
     /**
